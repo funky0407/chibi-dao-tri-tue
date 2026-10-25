@@ -1,0 +1,378 @@
+{
+  "id": "grade1",
+  "name": "Đảo Dâu Tây",
+  "grade": 1,
+  "bg": "bg_island",
+  "tree": [330, 268],
+  "world": [180, 500],
+  "icon": "strawberry",
+  "icon2": "staritem",
+  "color": "#a8e6a1",
+  "decor": ["tree", "flower", "strawberry"],
+  "journey": {
+    "regions": [
+      { "name": "Vườn Dâu", "from": 0 },
+      { "name": "Bờ Suối", "from": 7 },
+      { "name": "Đồi Gió", "from": 13 }
+    ],
+    "stops": [
+      { "kind": "play", "subject": "g1-math", "tier": 0 },
+      { "kind": "story", "subject": "g1-word", "tier": 0, "npc": "rabbit", "npcName": "Thỏ Con",
+        "story": ["Hu hu, mình là Thỏ Con. Mình bị lạc đường rồi!", "Tấm biển chỉ đường bị mất chữ. Bé ghép chữ giúp mình nhé!"],
+        "thanks": "Cảm ơn bé! Cho mình đi cùng bé nhé!" },
+      { "kind": "play", "subject": "g1-memory", "tier": 0 },
+      { "kind": "play", "subject": "g1-pattern", "tier": 0 },
+      { "kind": "chest", "reward": { "acc": "hat" } },
+      { "kind": "play", "subject": "g1-sort", "tier": 0 },
+      { "kind": "gate", "name": "Cổng Vườn Dâu", "hp": 3,
+        "intro": "Cổng Vườn Dâu bị khoá rồi! Bé trả lời đúng 3 câu để mở cổng nhé!",
+        "outro": "Cổng mở rồi! Mình cùng sang Bờ Suối nào!" },
+      { "kind": "story", "subject": "g1-catch", "tier": 1, "npc": "fish", "npcName": "Cá Con",
+        "story": ["Ối! Mình bị sóng đánh lên bờ rồi!", "Bé hứng đúng các quả để đổi lấy xô nước, đưa mình về suối nhé!"],
+        "thanks": "Mát quá! Cảm ơn bé, mình sẽ bơi theo bé!" },
+      { "kind": "play", "subject": "g1-match", "tier": 1 },
+      { "kind": "play", "subject": "g1-math", "tier": 2 },
+      { "kind": "rest", "name": "Trạm nghỉ bên suối", "options": [{ "subject": "g1-color", "tier": 1 }, { "subject": "g1-dance", "tier": 0 }] },
+      { "kind": "play", "subject": "g1-memory", "tier": 3 },
+      { "kind": "gate", "name": "Cầu Gỗ", "hp": 3,
+        "intro": "Cây cầu bị gãy rồi! Bé trả lời đúng 3 câu để dựng lại cầu nhé!",
+        "outro": "Cầu đã dựng xong! Lên Đồi Gió thôi!" },
+      { "kind": "play", "subject": "g1-dance", "tier": 1 },
+      { "kind": "story", "subject": "g1-sort", "tier": 2, "npc": "bird", "npcName": "Chim Non",
+        "story": ["Gió to quá, mình không bay về tổ được!", "Bé xếp các số chẵn, số lẻ vào giỏ để làm bậc thang cho mình nhé!"],
+        "thanks": "Cảm ơn bé! Mình sẽ bay theo bé tới cuối đường!" },
+      { "kind": "play", "subject": "g1-pattern", "tier": 2 },
+      { "kind": "chest", "reward": { "acc": "glasses" } },
+      { "kind": "boss" }
+    ]
+  },
+  "subjects": [
+    {
+      "id": "g1-math", "type": "math", "subject": "math", "title": "Toán vui", "icon": "strawberry", "pos": [220, 600],
+      "base": { "rounds": 8 },
+      "tiers": [
+        { "rounds": 6, "kinds": ["count"], "countMax": 5, "max": 5 },
+        { "kinds": ["count", "add", "count", "add"], "countMax": 10, "max": 5 },
+        { "kinds": ["count", "add", "sub", "add", "sub"], "countMax": 10, "max": 10 },
+        { "kinds": ["add", "sub", "missing"], "max": 20, "noCarry": true },
+        { "kinds": ["add", "sub", "missing"], "max": 50, "noCarry": true },
+        { "rounds": 10, "kinds": ["add", "sub", "missing", "chain"], "max": 100, "noCarry": true }
+      ]
+    },
+    {
+      "id": "g1-word", "type": "word", "subject": "viet", "title": "Ghép chữ", "icon": "fish", "pos": [380, 510],
+      "base": {
+        "rounds": 5, "extra": 2,
+        "distractors": ["a", "o", "e", "b", "t", "n", "u", "i", "ô", "ơ", "d", "l", "m", "s"]
+      },
+      "tiers": [
+        { "rounds": 4, "extra": 1, "words": [
+          { "tiles": ["c", "á"], "item": "fish", "say": "con cá" },
+          { "tiles": ["g", "à"], "item": "chicken", "say": "con gà" },
+          { "tiles": ["b", "ò"], "item": "cow", "say": "con bò" },
+          { "tiles": ["ch", "ó"], "item": "dog", "say": "con chó" }
+        ] },
+        { "words": [
+          { "tiles": ["c", "á"], "item": "fish", "say": "con cá" },
+          { "tiles": ["g", "à"], "item": "chicken", "say": "con gà" },
+          { "tiles": ["b", "ò"], "item": "cow", "say": "con bò" },
+          { "tiles": ["ch", "ó"], "item": "dog", "say": "con chó" },
+          { "tiles": ["nh", "à"], "item": "house", "say": "ngôi nhà" }
+        ] },
+        { "words": [
+          { "tiles": ["m", "è", "o"], "item": "cat", "say": "con mèo" },
+          { "tiles": ["h", "o", "a"], "item": "flower", "say": "bông hoa" },
+          { "tiles": ["c", "â", "y"], "item": "tree", "say": "cái cây" },
+          { "tiles": ["t", "á", "o"], "item": "apple", "say": "quả táo" },
+          { "tiles": ["s", "a", "o"], "item": "staritem", "say": "ngôi sao" },
+          { "tiles": ["d", "â", "u"], "item": "strawberry", "say": "quả dâu" },
+          { "tiles": ["t", "i", "m"], "item": "heart", "say": "trái tim" }
+        ] },
+        { "extra": 3, "words": [
+          { "tiles": ["tr", "ă", "ng"], "item": "moon", "say": "mặt trăng" },
+          { "tiles": ["ch", "u", "ố", "i"], "item": "banana", "say": "quả chuối" },
+          { "tiles": ["gi", "ỏ"], "item": "basket", "say": "cái giỏ" },
+          { "tiles": ["m", "è", "o"], "item": "cat", "say": "con mèo" },
+          { "tiles": ["t", "á", "o"], "item": "apple", "say": "quả táo" },
+          { "tiles": ["d", "â", "u"], "item": "strawberry", "say": "quả dâu" }
+        ] },
+        { "extra": 3, "similar": true, "words": [
+          { "tiles": ["n", "h", "à"], "item": "house", "say": "ngôi nhà" },
+          { "tiles": ["t", "r", "ă", "n", "g"], "item": "moon", "say": "mặt trăng" },
+          { "tiles": ["c", "h", "u", "ố", "i"], "item": "banana", "say": "quả chuối" },
+          { "tiles": ["g", "i", "ỏ"], "item": "basket", "say": "cái giỏ" },
+          { "tiles": ["c", "h", "ó"], "item": "dog", "say": "con chó" },
+          { "tiles": ["t", "á", "o"], "item": "apple", "say": "quả táo" }
+        ] },
+        { "rounds": 6, "extra": 4, "similar": true, "sayWord": false, "words": [
+          { "tiles": ["c", "h", "u", "ố", "i"], "item": "banana", "say": "quả chuối" },
+          { "tiles": ["t", "r", "ă", "n", "g"], "item": "moon", "say": "mặt trăng" },
+          { "tiles": ["m", "è", "o"], "item": "cat", "say": "con mèo" },
+          { "tiles": ["g", "i", "ỏ"], "item": "basket", "say": "cái giỏ" },
+          { "tiles": ["h", "o", "a"], "item": "flower", "say": "bông hoa" },
+          { "tiles": ["c", "â", "y"], "item": "tree", "say": "cái cây" },
+          { "tiles": ["d", "â", "u"], "item": "strawberry", "say": "quả dâu" },
+          { "tiles": ["t", "i", "m"], "item": "heart", "say": "trái tim" }
+        ] }
+      ]
+    },
+    {
+      "id": "g1-pattern", "type": "pattern", "subject": "logic", "title": "Tìm quy luật", "icon": "staritem", "pos": [540, 600],
+      "base": { "pool": ["strawberry", "apple", "banana", "staritem", "heart", "flower", "sun", "moon", "fish"] },
+      "tiers": [
+        { "patterns": ["AB", "AB", "AB", "AB"], "hide": "last", "choices": 3 },
+        { "patterns": ["AB", "AB", "AAB", "ABB", "AAB"], "hide": "last", "choices": 3 },
+        { "patterns": ["AB", "AAB", "ABB", "ABC", "ABC"], "hide": "mixed", "choices": 3 },
+        { "patterns": ["ABC", "AABB", "ABCC", "ABBC", "AABC"], "hide": "random", "choices": 4 },
+        { "patterns": ["AABB", "ABCD", "ABCB", "AABBC", "ABCD"], "hide": "random", "choices": 4 },
+        { "patterns": ["ABCDE", "AABBC", "ABCBA", "ABCDD", "ABACD", "ABCDE"], "hide": "random", "choices": 5 }
+      ]
+    },
+    {
+      "id": "g1-match", "type": "match", "subject": "english", "title": "Tiếng Anh", "icon": "cat", "pos": [700, 510],
+      "base": {
+        "vocab": [
+          { "word": "cat", "item": "cat" }, { "word": "dog", "item": "dog" }, { "word": "fish", "item": "fish" },
+          { "word": "sun", "item": "sun" }, { "word": "apple", "item": "apple" }, { "word": "tree", "item": "tree" },
+          { "word": "cow", "item": "cow" }, { "word": "moon", "item": "moon" }, { "word": "star", "item": "staritem" },
+          { "word": "flower", "item": "flower" }, { "word": "house", "item": "house" }, { "word": "banana", "item": "banana" },
+          { "word": "heart", "item": "heart" }, { "word": "chicken", "item": "chicken" }, { "word": "strawberry", "item": "strawberry" },
+          { "word": "basket", "item": "basket" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 3, "sets": 2, "vocabSize": 6 },
+        { "pairs": 4, "sets": 2, "vocabSize": 8 },
+        { "pairs": 4, "sets": 3, "vocabSize": 11 },
+        { "pairs": 4, "sets": 3, "vocabSize": 16 },
+        { "pairs": 5, "sets": 3, "vocabSize": 16 },
+        { "pairs": 5, "sets": 4, "vocabSize": 16, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g1-color", "type": "color", "subject": "art", "title": "Tô màu", "icon": "flower", "pos": [860, 600],
+      "base": {
+        "pictures": [
+          {
+            "id": "sun", "name": "Mặt trời vui vẻ",
+            "colors": ["#ffd166", "#8fd3ff", "#7ed957"],
+            "regions": [
+              { "n": 2, "r": [0, 0, 600, 480], "l": [80, 80] },
+              { "n": 3, "p": [0, 360, 150, 330, 300, 345, 450, 325, 600, 350, 600, 480, 0, 480], "l": [300, 420] },
+              { "n": 1, "c": [300, 190, 110] }
+            ]
+          },
+          {
+            "id": "apple", "name": "Quả táo đỏ",
+            "colors": ["#ff6b6b", "#7ed957", "#c08552", "#8fd3ff"],
+            "regions": [
+              { "n": 4, "r": [0, 0, 600, 480], "l": [70, 70] },
+              { "n": 3, "r": [0, 370, 600, 110], "l": [80, 430] },
+              { "n": 3, "r": [292, 95, 18, 60, 6], "l": [301, 118] },
+              { "n": 1, "c": [300, 260, 115] },
+              { "n": 2, "e": [350, 115, 40, 18] }
+            ]
+          },
+          {
+            "id": "house", "name": "Ngôi nhà xinh",
+            "colors": ["#ffd166", "#ff8fab", "#7ed957", "#8fd3ff", "#b892ff", "#c08552"],
+            "regions": [
+              { "n": 4, "r": [0, 0, 600, 480], "l": [80, 90] },
+              { "n": 3, "p": [0, 360, 150, 330, 300, 345, 450, 325, 600, 350, 600, 480, 0, 480], "l": [80, 430] },
+              { "n": 1, "c": [520, 80, 45] },
+              { "n": 6, "r": [380, 110, 35, 80], "l": [397, 128] },
+              { "n": 1, "r": [170, 200, 260, 200], "l": [215, 335] },
+              { "n": 2, "p": [140, 210, 300, 90, 460, 210], "l": [300, 170] },
+              { "n": 5, "r": [270, 290, 60, 110, 10] },
+              { "n": 4, "r": [195, 240, 55, 50, 8] },
+              { "n": 4, "r": [350, 240, 55, 50, 8] },
+              { "n": 6, "r": [500, 260, 30, 120, 6] },
+              { "n": 3, "c": [515, 220, 60] }
+            ]
+          },
+          {
+            "id": "flower", "name": "Bông hoa và bướm",
+            "colors": ["#ffd166", "#ff8fab", "#7ed957", "#8fd3ff", "#b892ff"],
+            "regions": [
+              { "n": 4, "r": [0, 0, 600, 480], "l": [440, 250] },
+              { "n": 3, "p": [0, 360, 150, 330, 300, 345, 450, 325, 600, 350, 600, 480, 0, 480], "l": [110, 420] },
+              { "n": 1, "c": [500, 90, 55] },
+              { "n": 3, "r": [285, 250, 30, 150] },
+              { "n": 3, "e": [245, 320, 40, 18] },
+              { "n": 3, "e": [355, 300, 40, 18] },
+              { "n": 2, "c": [300, 138, 46], "l": [300, 118] },
+              { "n": 2, "c": [359, 181, 46], "l": [378, 175] },
+              { "n": 2, "c": [336, 250, 46], "l": [348, 266] },
+              { "n": 2, "c": [264, 250, 46], "l": [252, 266] },
+              { "n": 2, "c": [241, 181, 46], "l": [222, 175] },
+              { "n": 1, "c": [300, 200, 42] },
+              { "n": 5, "e": [110, 140, 30, 40] },
+              { "n": 5, "e": [160, 140, 30, 40] },
+              { "n": 2, "e": [135, 145, 9, 32] }
+            ]
+          },
+          {
+            "id": "sea", "name": "Bạn cá dưới biển",
+            "colors": ["#8fd3ff", "#ffa45c", "#ffd166", "#7ed957", "#ff8fab", "#b892ff"],
+            "regions": [
+              { "n": 1, "r": [0, 0, 600, 480], "l": [60, 60] },
+              { "n": 3, "p": [0, 400, 150, 385, 300, 395, 450, 380, 600, 395, 600, 480, 0, 480], "l": [300, 448] },
+              { "n": 4, "p": [70, 400, 60, 330, 85, 280, 75, 230, 100, 270, 95, 340, 105, 400], "l": [86, 340] },
+              { "n": 4, "p": [500, 395, 490, 320, 515, 270, 510, 220, 535, 265, 530, 330, 540, 395], "l": [516, 335] },
+              { "n": 5, "p": [420, 404, 426.5, 421.1, 444.7, 422, 430.5, 433.4, 435.3, 451, 420, 441, 404.7, 451, 409.5, 433.4, 395.3, 422, 413.5, 421.1], "l": [420, 428] },
+              { "n": 3, "p": [240, 150, 300, 110, 330, 152], "l": [298, 127] },
+              { "n": 3, "p": [255, 290, 300, 335, 320, 290], "l": [299, 316] },
+              { "n": 5, "p": [395, 220, 480, 160, 480, 280], "l": [455, 220] },
+              { "n": 2, "e": [280, 220, 130, 80], "l": [235, 255] },
+              { "n": 3, "e": [300, 220, 18, 70] },
+              { "n": 6, "c": [200, 205, 16] },
+              { "n": 6, "p": [490, 100, 525, 80, 525, 120], "l": [513, 100] },
+              { "n": 6, "e": [450, 100, 45, 25] },
+              { "n": 5, "c": [140, 110, 16] },
+              { "n": 5, "c": [110, 72, 15] },
+              { "n": 5, "c": [160, 46, 14] }
+            ]
+          },
+          {
+            "id": "boat", "name": "Thuyền buồm ra khơi",
+            "colors": ["#8fd3ff", "#ffd166", "#ff8fab", "#7ed957", "#4fa3e8", "#c08552", "#ffa45c"],
+            "regions": [
+              { "n": 1, "r": [0, 0, 600, 300], "l": [60, 60] },
+              { "n": 2, "c": [520, 70, 45] },
+              { "n": 4, "p": [380, 300, 430, 250, 520, 240, 600, 260, 600, 300], "l": [450, 282] },
+              { "n": 6, "r": [500, 150, 14, 100, 5], "l": [507, 205] },
+              { "n": 4, "e": [480, 148, 40, 14] },
+              { "n": 4, "e": [535, 148, 40, 14] },
+              { "n": 4, "e": [507, 128, 14, 34] },
+              { "n": 5, "r": [0, 300, 600, 180], "l": [60, 455] },
+              { "n": 1, "e": [80, 420, 52, 15] },
+              { "n": 1, "e": [480, 445, 52, 15] },
+              { "n": 1, "e": [420, 395, 44, 13] },
+              { "n": 6, "r": [260, 95, 16, 240] },
+              { "n": 3, "p": [276, 130, 276, 315, 390, 315] },
+              { "n": 2, "p": [258, 160, 258, 315, 170, 315] },
+              { "n": 7, "p": [274, 98, 274, 122, 308, 110], "l": [284, 110] },
+              { "n": 6, "p": [140, 330, 400, 330, 360, 390, 180, 390], "l": [195, 378] },
+              { "n": 7, "r": [160, 345, 220, 14] },
+              { "n": 2, "c": [250, 374, 12] },
+              { "n": 2, "c": [300, 374, 12] },
+              { "n": 2, "c": [350, 374, 12] }
+            ]
+          }
+        ]
+      },
+      "tiers": [
+        { "picture": "sun" },
+        { "picture": "apple" },
+        { "picture": "house" },
+        { "picture": "flower" },
+        { "picture": "sea" },
+        { "picture": "boat" }
+      ]
+    },
+    {
+      "id": "g1-dance", "type": "dance", "subject": "dance", "title": "Nhảy theo nhạc", "icon": "note", "pos": [1040, 560],
+      "base": { "rapid": 0 },
+      "tiers": [
+        { "bpm": 72, "lanes": 2, "slow": 12, "fast": 0 },
+        { "bpm": 80, "lanes": 3, "slow": 10, "fast": 6 },
+        { "bpm": 90, "lanes": 4, "slow": 8, "fast": 14 },
+        { "bpm": 100, "lanes": 4, "slow": 4, "fast": 22 },
+        { "bpm": 108, "lanes": 4, "slow": 0, "fast": 24, "rapid": 8 },
+        { "bpm": 116, "lanes": 4, "slow": 0, "fast": 24, "rapid": 16 }
+      ]
+    },
+    {
+      "id": "g1-catch", "type": "catch", "subject": "reflex", "title": "Hứng quả", "icon": "basket", "pos": [1170, 420],
+      "base": { "time": 60 },
+      "tiers": [
+        { "mode": "num", "goal": 6, "max": 3, "speed": [90, 130], "spawn": 1400, "rate": 0.55 },
+        { "mode": "num", "goal": 8, "max": 5, "speed": [110, 170], "spawn": 1200, "rate": 0.5 },
+        { "mode": "num", "goal": 10, "max": 9, "speed": [150, 220], "spawn": 1000, "rate": 0.45 },
+        { "mode": "add", "goal": 10, "max": 10, "speed": [150, 230], "spawn": 1000, "rate": 0.45 },
+        { "mode": "add", "goal": 12, "max": 20, "speed": [180, 260], "spawn": 850, "rate": 0.4 },
+        { "mode": "mix", "goal": 14, "max": 20, "speed": [210, 300], "spawn": 750, "rate": 0.4 }
+      ]
+    },
+    {
+      "id": "g1-memory", "type": "memory", "subject": "memory", "title": "Lật thẻ", "icon": "cards", "pos": [1010, 330],
+      "base": {
+        "pool": ["strawberry", "apple", "banana", "fish", "chicken", "cow", "cat", "dog", "flower", "tree", "house", "sun", "moon", "staritem", "heart"],
+        "words": [
+          { "w": "cá", "item": "fish" }, { "w": "gà", "item": "chicken" }, { "w": "bò", "item": "cow" }, { "w": "mèo", "item": "cat" },
+          { "w": "chó", "item": "dog" }, { "w": "hoa", "item": "flower" }, { "w": "cây", "item": "tree" }, { "w": "nhà", "item": "house" },
+          { "w": "táo", "item": "apple" }, { "w": "sao", "item": "staritem" }
+        ],
+        "english": [
+          { "w": "cat", "item": "cat" }, { "w": "dog", "item": "dog" }, { "w": "fish", "item": "fish" }, { "w": "sun", "item": "sun" },
+          { "w": "apple", "item": "apple" }, { "w": "tree", "item": "tree" }, { "w": "cow", "item": "cow" }, { "w": "moon", "item": "moon" },
+          { "w": "star", "item": "staritem" }, { "w": "flower", "item": "flower" }, { "w": "house", "item": "house" }, { "w": "heart", "item": "heart" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 2, "mode": "same", "peek": 2500 },
+        { "pairs": 3, "mode": "same", "peek": 2000 },
+        { "pairs": 4, "mode": "same", "peek": 1500 },
+        { "pairs": 4, "mode": "word" },
+        { "pairs": 5, "mode": "math", "max": 10 },
+        { "pairs": 6, "mode": "english" }
+      ]
+    },
+    {
+      "id": "g1-sort", "type": "sort", "subject": "sort", "title": "Phân loại", "icon": "boxes", "pos": [830, 330],
+      "base": {
+        "groups": {
+          "fruit": {
+            "bins": [{ "name": "Quả", "icon": "apple" }, { "name": "Con vật", "icon": "cat" }],
+            "items": [
+              { "item": "strawberry", "bin": 0 }, { "item": "apple", "bin": 0 }, { "item": "banana", "bin": 0 },
+              { "item": "cat", "bin": 1 }, { "item": "dog", "bin": 1 }, { "item": "cow", "bin": 1 }, { "item": "chicken", "bin": 1 }, { "item": "fish", "bin": 1 }
+            ]
+          },
+          "living": {
+            "bins": [{ "name": "Con vật", "icon": "dog" }, { "name": "Đồ vật", "icon": "house" }],
+            "items": [
+              { "item": "cat", "bin": 0 }, { "item": "dog", "bin": 0 }, { "item": "cow", "bin": 0 }, { "item": "chicken", "bin": 0 },
+              { "item": "fish", "bin": 0 }, { "item": "bird", "bin": 0 }, { "item": "duck", "bin": 0 }, { "item": "rabbit", "bin": 0 },
+              { "item": "house", "bin": 1 }, { "item": "ball", "bin": 1 }, { "item": "car", "bin": 1 }, { "item": "chair", "bin": 1 },
+              { "item": "book", "bin": 1 }, { "item": "pencil", "bin": 1 }, { "item": "basket", "bin": 1 }
+            ]
+          },
+          "color3": {
+            "bins": [{ "name": "Màu đỏ" }, { "name": "Màu vàng" }, { "name": "Màu xanh" }],
+            "items": [
+              { "item": "strawberry", "bin": 0 }, { "item": "apple", "bin": 0 }, { "item": "car", "bin": 0 }, { "item": "bag", "bin": 0 },
+              { "item": "banana", "bin": 1 }, { "item": "sun", "bin": 1 }, { "item": "staritem", "bin": 1 }, { "item": "chicken", "bin": 1 }, { "item": "duck", "bin": 1 },
+              { "item": "fish", "bin": 2 }, { "item": "bird", "bin": 2 }, { "item": "book", "bin": 2 }, { "item": "tree", "bin": 2 }
+            ]
+          }
+        }
+      },
+      "tiers": [
+        { "group": "fruit", "rounds": 6 },
+        { "group": "living", "rounds": 8 },
+        { "rule": "parity", "max": 10, "rounds": 8 },
+        { "group": "color3", "rounds": 9 },
+        { "rule": "compare", "pivot": 10, "max": 20, "rounds": 10 },
+        { "rule": "exprParity", "max": 20, "rounds": 10 }
+      ]
+    }
+  ],
+  "boss": {
+    "id": "g1-boss", "type": "boss", "subject": "mixed", "title": "Quái Mây Đen", "icon": "boss", "sticker": "boss_happy",
+    "pos": [630, 290], "requiredStars": 20,
+    "config": {
+      "hp": 5,
+      "types": ["add", "word", "pattern", "english", "count", "add", "word", "english"],
+      "words": [
+        { "w": "cá", "item": "fish" }, { "w": "gà", "item": "chicken" }, { "w": "bò", "item": "cow" },
+        { "w": "mèo", "item": "cat" }, { "w": "hoa", "item": "flower" }, { "w": "nhà", "item": "house" }
+      ],
+      "english": [
+        { "w": "cat", "item": "cat" }, { "w": "dog", "item": "dog" }, { "w": "fish", "item": "fish" },
+        { "w": "sun", "item": "sun" }, { "w": "apple", "item": "apple" }, { "w": "tree", "item": "tree" }
+      ],
+      "pool": ["strawberry", "apple", "banana", "staritem", "heart", "flower"]
+    }
+  }
+}

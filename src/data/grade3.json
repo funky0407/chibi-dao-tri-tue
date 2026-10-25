@@ -1,0 +1,284 @@
+{
+  "id": "grade3",
+  "name": "Đảo San Hô",
+  "grade": 3,
+  "bg": "bg_island3",
+  "tree": [330, 268],
+  "world": [660, 500],
+  "icon": "turtle",
+  "icon2": "shell",
+  "color": "#f6dcc8",
+  "unlock": { "boss": "g2-boss", "island": "grade2" },
+  "decor": ["coral", "shell", "fish"],
+  "journey": {
+    "regions": [
+      { "name": "Bãi Cát Vàng", "from": 0 },
+      { "name": "Rạn San Hô", "from": 7 },
+      { "name": "Hang Ngọc Trai", "from": 13 }
+    ],
+    "stops": [
+      { "kind": "play", "subject": "g3-math", "tier": 0 },
+      { "kind": "story", "subject": "g3-clock", "tier": 0, "npc": "turtle", "npcName": "Rùa Con",
+        "story": ["Chào bé! Mình là Rùa Con, mình đi chậm lắm.", "Bé xem đồng hồ giúp mình để mình về nhà kịp giờ nhé!"],
+        "thanks": "Kịp giờ rồi! Cảm ơn bé, cho mình đi cùng nhé!" },
+      { "kind": "play", "subject": "g3-tangram", "tier": 0 },
+      { "kind": "play", "subject": "g3-match", "tier": 0 },
+      { "kind": "chest", "reward": { "acc": "shell" } },
+      { "kind": "play", "subject": "g3-sudoku", "tier": 0 },
+      { "kind": "gate", "name": "Cổng San Hô", "hp": 3,
+        "intro": "Cổng San Hô bị rong biển quấn chặt! Bé trả lời đúng 3 câu để mở cổng nhé!",
+        "outro": "Cổng mở rồi! Mình cùng lặn xuống Rạn San Hô nào!" },
+      { "kind": "story", "subject": "g3-sort", "tier": 0, "npc": "crab", "npcName": "Cua Con",
+        "story": ["Ối, sóng cuốn đồ đạc của mình lẫn lộn hết rồi!", "Bé xếp các con vật dưới biển và trên cạn vào đúng giỏ giúp mình nhé!"],
+        "thanks": "Gọn gàng quá! Cảm ơn bé, mình bò theo bé nhé!" },
+      { "kind": "play", "subject": "g3-word", "tier": 0 },
+      { "kind": "play", "subject": "g3-memory", "tier": 1 },
+      { "kind": "rest", "name": "Trạm nghỉ rạn san hô", "options": [{ "subject": "g3-dance", "tier": 0 }, { "subject": "g3-tangram", "tier": 1 }] },
+      { "kind": "play", "subject": "g3-pattern", "tier": 1 },
+      { "kind": "gate", "name": "Hang Ngọc Trai", "hp": 3,
+        "intro": "Cửa hang Ngọc Trai đóng chặt! Bé trả lời đúng 3 câu để mở hang nhé!",
+        "outro": "Hang mở rồi! Ngọc trai sáng lấp lánh!" },
+      { "kind": "play", "subject": "g3-catch", "tier": 1 },
+      { "kind": "story", "subject": "g3-math", "tier": 3, "npc": "fish", "npcName": "Cá Hề",
+        "story": ["Bong bóng của mình bị vỡ hết rồi!", "Bé tính đúng các phép nhân, phép chia để mình thổi bong bóng mới nhé!"],
+        "thanks": "Bong bóng đẹp quá! Cảm ơn bé!" },
+      { "kind": "play", "subject": "g3-sudoku", "tier": 2 },
+      { "kind": "chest", "reward": { "acc": "star" } },
+      { "kind": "boss" }
+    ]
+  },
+  "subjects": [
+    {
+      "id": "g3-math", "type": "math", "subject": "math", "title": "Toán vui", "icon": "shell", "pos": [200, 600],
+      "base": { "rounds": 8, "tables": [2, 3, 4, 5, 6, 7, 8, 9] },
+      "tiers": [
+        { "kinds": ["mul"], "tables": [3, 4] },
+        { "kinds": ["mul", "div"], "tables": [6, 7, 8, 9] },
+        { "kinds": ["add", "sub"], "max": 10000 },
+        { "kinds": ["mulBig", "divBig"] },
+        { "kinds": ["perimeter", "mulBig", "divBig"] },
+        { "rounds": 10, "kinds": ["mixmul", "perimeter", "mulBig", "divBig", "sub"], "max": 10000, "tables": [6, 7, 8, 9] }
+      ]
+    },
+    {
+      "id": "g3-clock", "type": "clock", "subject": "time", "title": "Xem đồng hồ", "icon": "clock", "pos": [340, 515],
+      "base": { "rounds": 6 },
+      "tiers": [
+        { "mode": "read", "step": 5, "choices": 3 },
+        { "mode": "read", "step": 1, "choices": 3 },
+        { "mode": "read", "step": 1, "choices": 4, "kem": true },
+        { "mode": "pick", "step": 5, "choices": 4, "close": true },
+        { "mode": "pick", "step": 1, "choices": 3, "close": true },
+        { "mode": "pick", "step": 1, "choices": 4, "kem": true, "close": true }
+      ]
+    },
+    {
+      "id": "g3-word", "type": "word", "subject": "viet", "title": "Ghép câu", "icon": "book", "pos": [480, 600],
+      "base": { "rounds": 5, "extra": 2, "distractors": ["trên", "dưới", "đẹp", "xa", "nhanh", "chậm", "to", "mát", "vui", "xinh"] },
+      "tiers": [
+        { "mode": "sentence", "extra": 1, "words": [
+          { "tiles": ["Cá", "bơi", "dưới", "nước"], "item": "fish" },
+          { "tiles": ["Chim", "hót", "trên", "cành"], "item": "bird" },
+          { "tiles": ["Mèo", "con", "ngủ", "say"], "item": "cat" },
+          { "tiles": ["Gà", "mẹ", "gọi", "con"], "item": "chicken" },
+          { "tiles": ["Bé", "đọc", "sách", "hay"], "item": "book" }
+        ] },
+        { "mode": "sentence", "words": [
+          { "tiles": ["Rùa", "con", "bò", "rất", "chậm"], "item": "turtle" },
+          { "tiles": ["Cua", "bò", "ngang", "trên", "cát"], "item": "crab" },
+          { "tiles": ["Đàn", "vịt", "bơi", "trên", "ao"], "item": "duck" },
+          { "tiles": ["Quả", "táo", "chín", "đỏ", "au"], "item": "apple" },
+          { "tiles": ["Mặt trời", "chiếu", "sáng", "khắp", "nơi"], "item": "sun" }
+        ] },
+        { "mode": "sentence", "words": [
+          { "tiles": ["Em", "tưới", "cây", "mỗi", "buổi", "sáng"], "item": "tree" },
+          { "tiles": ["Chú", "chó", "trông", "nhà", "rất", "giỏi"], "item": "dog" },
+          { "tiles": ["Bạn", "thỏ", "thích", "ăn", "cà rốt"], "item": "rabbit" },
+          { "tiles": ["Hoa", "hướng dương", "nở", "vàng", "rực"], "item": "sunflower" },
+          { "tiles": ["Bé", "đá", "bóng", "cùng", "các", "bạn"], "item": "ball" }
+        ] },
+        { "mode": "fill", "sep": " ", "words": [
+          { "tiles": ["Mặt trời", "mọc", "ở", "phía", "Đông"], "blank": [4], "options": ["Tây", "Bắc"], "item": "sun" },
+          { "tiles": ["Cá", "sống", "ở", "dưới", "nước"], "blank": [4], "options": ["đất", "cây"], "item": "fish" },
+          { "tiles": ["Mùa", "hè", "trời", "rất", "nóng"], "blank": [4], "options": ["lạnh", "rét"], "item": "sun" },
+          { "tiles": ["Chim", "bay", "trên", "bầu trời"], "blank": [1], "options": ["bơi", "bò"], "item": "bird" },
+          { "tiles": ["Con", "rùa", "bò", "rất", "chậm"], "blank": [4], "options": ["nhanh", "vội"], "item": "turtle" },
+          { "tiles": ["Bé", "đọc", "sách", "ở", "thư viện"], "blank": [1], "options": ["ăn", "ngủ"], "item": "book" }
+        ] },
+        { "mode": "sentence", "extra": 3, "words": [
+          { "tiles": ["Đàn", "cá", "nhỏ", "bơi", "lội", "tung tăng"], "item": "fish" },
+          { "tiles": ["Rùa", "con", "chậm rãi", "bò", "về", "biển"], "item": "turtle" },
+          { "tiles": ["Bạn", "cua", "đi", "ngang", "trên", "bãi cát"], "item": "crab" },
+          { "tiles": ["Mặt trời", "lặn", "sau", "rặng", "núi", "xa"], "item": "sun" },
+          { "tiles": ["Em", "chăm chỉ", "học", "bài", "mỗi", "tối"], "item": "book" }
+        ] },
+        { "mode": "sentence", "extra": 3, "words": [
+          { "tiles": ["Mùa xuân", "cây cối", "đâm", "chồi", "nảy", "lộc"], "item": "tree" },
+          { "tiles": ["Những", "con sóng", "nhỏ", "vỗ", "về", "bờ cát"], "item": "shell" },
+          { "tiles": ["Chú", "chim sâu", "bắt", "sâu", "cho", "lá"], "item": "bird" },
+          { "tiles": ["Bé", "giúp", "mẹ", "quét", "nhà", "sạch sẽ"], "item": "house" },
+          { "tiles": ["Đàn", "vịt", "con", "lạch bạch", "xuống", "ao"], "item": "duck" }
+        ] }
+      ]
+    },
+    {
+      "id": "g3-pattern", "type": "pattern", "subject": "logic", "title": "Tìm quy luật", "icon": "staritem", "pos": [620, 515],
+      "base": { "rounds": 5, "mode": "number" },
+      "tiers": [
+        { "seqKinds": ["up"], "steps": [3, 4, 6], "startMax": 30, "hide": "last" },
+        { "seqKinds": ["down"], "steps": [5, 10, 25], "startMax": 100, "hide": "mixed" },
+        { "seqKinds": ["alt"], "steps": [2, 5, 10], "startMax": 50, "hide": "mixed" },
+        { "seqKinds": ["geo"], "factors": [2], "len": 6, "hide": "last" },
+        { "seqKinds": ["geo", "grow"], "factors": [2, 3], "len": 5, "hide": "mixed", "choices": 4 },
+        { "rounds": 6, "seqKinds": ["geo", "alt", "down", "grow"], "factors": [2, 3], "steps": [3, 7, 9], "startMax": 60, "len": 6, "hide": "middle", "choices": 4 }
+      ]
+    },
+    {
+      "id": "g3-match", "type": "match", "subject": "english", "title": "Tiếng Anh", "icon": "crab", "pos": [760, 600],
+      "base": {
+        "prompt": "Nối từ tiếng Việt với từ tiếng Anh",
+        "vocab": [
+          { "label": "đầu", "word": "head" }, { "label": "tay", "word": "hand" }, { "label": "chân", "word": "leg" },
+          { "label": "mắt", "word": "eye" }, { "label": "tai", "word": "ear" }, { "label": "mũi", "word": "nose" },
+          { "label": "miệng", "word": "mouth" }, { "label": "tóc", "word": "hair" },
+          { "label": "nắng", "word": "sunny" }, { "label": "mưa", "word": "rainy" }, { "label": "gió", "word": "windy" },
+          { "label": "nhiều mây", "word": "cloudy" }, { "label": "nóng", "word": "hot" }, { "label": "lạnh", "word": "cold" },
+          { "label": "bố", "word": "father" }, { "label": "mẹ", "word": "mother" }, { "label": "anh trai", "word": "brother" },
+          { "label": "chị gái", "word": "sister" }, { "label": "ông", "word": "grandfather" }, { "label": "bà", "word": "grandmother" },
+          { "label": "phòng ngủ", "word": "bedroom" }, { "label": "nhà bếp", "word": "kitchen" },
+          { "label": "phòng khách", "word": "living room" }, { "label": "phòng tắm", "word": "bathroom" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 3, "sets": 2, "vocabFrom": 0, "vocabSize": 8 },
+        { "pairs": 4, "sets": 2, "vocabFrom": 8, "vocabSize": 6 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 14, "vocabSize": 6 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 14, "vocabSize": 10 },
+        { "pairs": 5, "sets": 3, "vocabFrom": 0, "vocabSize": 24 },
+        { "pairs": 5, "sets": 4, "vocabFrom": 0, "vocabSize": 24, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g3-sort", "type": "sort", "subject": "sort", "title": "Phân loại", "icon": "boxes", "pos": [900, 515],
+      "base": {
+        "groups": {
+          "sea": {
+            "bins": [{ "name": "Dưới biển", "icon": "fish" }, { "name": "Trên cạn", "icon": "dog" }],
+            "items": [
+              { "item": "fish", "bin": 0 }, { "item": "turtle", "bin": 0 }, { "item": "crab", "bin": 0 }, { "item": "shell", "bin": 0 }, { "item": "coral", "bin": 0 },
+              { "item": "dog", "bin": 1 }, { "item": "cat", "bin": 1 }, { "item": "cow", "bin": 1 }, { "item": "chicken", "bin": 1 },
+              { "item": "rabbit", "bin": 1 }, { "item": "pig", "bin": 1 }, { "item": "squirrel", "bin": 1 }
+            ]
+          },
+          "words2": {
+            "bins": [{ "name": "Sự vật" }, { "name": "Hoạt động" }],
+            "items": [
+              { "label": "bàn", "bin": 0 }, { "label": "ghế", "bin": 0 }, { "label": "sách", "bin": 0 }, { "label": "cây", "bin": 0 }, { "label": "mèo", "bin": 0 }, { "label": "bút", "bin": 0 },
+              { "label": "chạy", "bin": 1 }, { "label": "nhảy", "bin": 1 }, { "label": "đọc", "bin": 1 }, { "label": "viết", "bin": 1 }, { "label": "hát", "bin": 1 }, { "label": "bơi", "bin": 1 }
+            ]
+          },
+          "words3": {
+            "bins": [{ "name": "Sự vật" }, { "name": "Hoạt động" }, { "name": "Đặc điểm" }],
+            "items": [
+              { "label": "bàn", "bin": 0 }, { "label": "sách", "bin": 0 }, { "label": "cây", "bin": 0 }, { "label": "mèo", "bin": 0 },
+              { "label": "chạy", "bin": 1 }, { "label": "đọc", "bin": 1 }, { "label": "viết", "bin": 1 }, { "label": "hát", "bin": 1 },
+              { "label": "xanh", "bin": 2 }, { "label": "cao", "bin": 2 }, { "label": "đẹp", "bin": 2 }, { "label": "ngoan", "bin": 2 }
+            ]
+          }
+        }
+      },
+      "tiers": [
+        { "group": "sea", "rounds": 8 },
+        { "group": "words2", "rounds": 8 },
+        { "rule": "divisible", "by": 2, "min": 10, "max": 99, "rounds": 8 },
+        { "group": "words3", "rounds": 9 },
+        { "rule": "divisible", "by": 5, "min": 10, "max": 200, "rounds": 10 },
+        { "rule": "divisible", "by": 3, "min": 10, "max": 99, "rounds": 10 }
+      ]
+    },
+    {
+      "id": "g3-memory", "type": "memory", "subject": "memory", "title": "Lật thẻ", "icon": "cards", "pos": [1050, 590],
+      "base": {
+        "tables": [2, 3, 4, 5, 6, 7, 8, 9],
+        "list": [
+          { "a": "cao", "b": "thấp" }, { "a": "to", "b": "nhỏ" }, { "a": "nóng", "b": "lạnh" }, { "a": "nhanh", "b": "chậm" },
+          { "a": "dài", "b": "ngắn" }, { "a": "vui", "b": "buồn" }, { "a": "sáng", "b": "tối" }, { "a": "mới", "b": "cũ" },
+          { "a": "khô", "b": "ướt" }, { "a": "đầy", "b": "vơi" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 4, "mode": "mul", "tables": [2, 3, 4, 5], "peek": 2000 },
+        { "pairs": 5, "mode": "mul", "tables": [6, 7, 8, 9] },
+        { "pairs": 5, "mode": "pairs" },
+        { "pairs": 6, "mode": "pairs" },
+        { "pairs": 6, "mode": "mul", "tables": [6, 7, 8, 9] },
+        { "pairs": 8, "mode": "mul", "tables": [3, 4, 6, 7, 8, 9] }
+      ]
+    },
+    {
+      "id": "g3-tangram", "type": "tangram", "subject": "tangram", "title": "Ghép hình", "icon": "house", "pos": [1170, 430],
+      "base": {},
+      "tiers": [
+        { "figures": ["house", "boat"], "hints": true },
+        { "figures": ["tree", "house", "boat"], "hints": true },
+        { "figures": ["fish", "tree", "cat"], "hints": true, "rotate": true },
+        { "figures": ["house", "boat", "tree"], "rotate": true },
+        { "figures": ["fish", "cat", "tree"], "rotate": true },
+        { "figures": ["cat", "fish", "boat"], "rotate": true, "decoy": true }
+      ]
+    },
+    {
+      "id": "g3-sudoku", "type": "sudoku", "subject": "sudoku", "title": "Sudoku", "icon": "heart", "pos": [1040, 340],
+      "base": {},
+      "tiers": [
+        { "size": 4, "symbols": "pics", "blanks": 4, "rounds": 2 },
+        { "size": 4, "symbols": "pics", "blanks": 7, "rounds": 2 },
+        { "size": 4, "symbols": "num", "blanks": 10 },
+        { "size": 6, "symbols": "num", "blanks": 12 },
+        { "size": 6, "symbols": "num", "blanks": 18 },
+        { "size": 6, "symbols": "num", "blanks": 24 }
+      ]
+    },
+    {
+      "id": "g3-catch", "type": "catch", "subject": "reflex", "title": "Hứng quả", "icon": "basket", "pos": [890, 300],
+      "base": { "time": 60, "tables": [2, 3, 4, 5, 6, 7, 8, 9] },
+      "tiers": [
+        { "ops": ["mul"], "tables": [3, 4], "goal": 10, "max": 40, "speed": [130, 200], "spawn": 1100, "rate": 0.45 },
+        { "ops": ["mul"], "tables": [6, 7], "goal": 10, "max": 70, "speed": [150, 220], "spawn": 1000, "rate": 0.45 },
+        { "ops": ["div"], "goal": 10, "max": 10, "speed": [160, 240], "spawn": 950, "rate": 0.45 },
+        { "ops": ["mul", "div"], "tables": [6, 7, 8, 9], "goal": 12, "max": 90, "speed": [180, 260], "spawn": 900, "rate": 0.4 },
+        { "ops": ["add", "sub"], "goal": 12, "max": 100, "speed": [200, 280], "spawn": 800, "rate": 0.4 },
+        { "ops": ["add", "sub", "mul", "div"], "goal": 14, "max": 100, "speed": [230, 320], "spawn": 700, "rate": 0.4 }
+      ]
+    },
+    {
+      "id": "g3-dance", "type": "dance", "subject": "dance", "title": "Nhảy theo nhạc", "icon": "note", "pos": [740, 340],
+      "base": { "rapid": 0 },
+      "tiers": [
+        { "bpm": 96, "lanes": 4, "slow": 6, "fast": 14 },
+        { "bpm": 104, "lanes": 4, "slow": 2, "fast": 22 },
+        { "bpm": 110, "lanes": 4, "slow": 0, "fast": 24, "rapid": 6 },
+        { "bpm": 118, "lanes": 4, "slow": 0, "fast": 24, "rapid": 12 },
+        { "bpm": 124, "lanes": 4, "slow": 0, "fast": 26, "rapid": 18 },
+        { "bpm": 132, "lanes": 4, "slow": 0, "fast": 28, "rapid": 24 }
+      ]
+    }
+  ],
+  "boss": {
+    "id": "g3-boss", "type": "boss", "subject": "mixed", "title": "Mực Khổng Lồ", "icon": "boss3", "sticker": "boss3_happy",
+    "pos": [580, 290], "requiredStars": 30,
+    "config": {
+      "hp": 8,
+      "art": "boss3",
+      "intro": "Mực Khổng Lồ phun mực làm đục cả rạn san hô! Bé trả lời đúng để đánh bại nó nhé!",
+      "outro": "Hoan hô! Nước biển lại trong xanh rồi!",
+      "types": ["math", "clock", "pair", "seq", "math", "pair", "clock", "math"],
+      "math": { "kinds": ["mul", "div", "mulBig", "perimeter"], "tables": [6, 7, 8, 9] },
+      "pairPrompt": "Chọn từ trái nghĩa nhé!",
+      "pairs": [
+        { "q": "cao", "a": "thấp" }, { "q": "to", "a": "nhỏ" }, { "q": "nóng", "a": "lạnh" }, { "q": "nhanh", "a": "chậm" },
+        { "q": "dài", "a": "ngắn" }, { "q": "vui", "a": "buồn" }, { "q": "sáng", "a": "tối" }, { "q": "mới", "a": "cũ" }
+      ]
+    }
+  }
+}

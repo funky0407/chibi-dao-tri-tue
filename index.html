@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Bé Chibi Phiêu Lưu Đảo Trí Tuệ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; height: 100%; background: #ffe5ec; overflow: hidden; touch-action: none; user-select: none; }
+    #game { width: 100vw; height: 100vh; }
+    #rotate {
+      display: none; position: fixed; inset: 0; z-index: 10; background: #ffe5ec; color: #5b3a5e;
+      font-family: "Baloo 2", sans-serif; font-size: 28px; font-weight: 800; text-align: center;
+      align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;
+    }
+    @media (orientation: portrait) and (max-width: 820px) { #rotate { display: flex; } }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.80.1/phaser.min.js"></script>
+</head>
+<body>
+  <div id="game"></div>
+  <div id="rotate" onclick="this.remove()">Bé hãy xoay ngang điện thoại để chơi nhé!<br>(chạm để bỏ qua)</div>
+  <script>
+    // Mở trực tiếp file index.html thì trình duyệt chặn tải mã game, nên hướng dẫn mở đúng cách.
+    if (location.protocol === 'file:') {
+      document.getElementById('game').innerHTML =
+        '<div style="height:100%;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box;' +
+        'font-family:\'Baloo 2\',sans-serif;color:#5b3a5e;font-size:26px;font-weight:700;line-height:1.5">' +
+        '<div>Game cần mở bằng file <b style="color:#e8638c">ChoiGame.bat</b><br>' +
+        '(nằm ở thư mục ngoài, cạnh thư mục chibi-puzzle).<br>Bấm đúp vào file đó để bắt đầu chơi nhé!</div></div>';
+    }
+  </script>
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

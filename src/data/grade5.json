@@ -1,0 +1,302 @@
+{
+  "id": "grade5",
+  "name": "Đảo Mây",
+  "grade": 5,
+  "bg": "bg_island5",
+  "tree": [330, 268],
+  "world": [1120, 500],
+  "icon": "cloud",
+  "icon2": "rainbow",
+  "color": "#e8f3ff",
+  "unlock": { "boss": "g4-boss", "island": "grade4" },
+  "decor": ["cloud", "rainbow", "staritem"],
+  "journey": {
+    "regions": [
+      { "name": "Đồi Mây Trắng", "from": 0 },
+      { "name": "Vườn Cầu Vồng", "from": 7 },
+      { "name": "Đỉnh Sấm Sét", "from": 13 }
+    ],
+    "stops": [
+      { "kind": "play", "subject": "g5-math", "tier": 0 },
+      { "kind": "story", "subject": "g5-english", "tier": 0, "npc": "bee", "npcName": "Ong Vàng",
+        "story": ["Vo ve! Mình muốn bay đi du lịch khắp thế giới!", "Bé dạy mình các từ tiếng Anh về địa điểm và sở thích nhé!"],
+        "thanks": "Mình nhớ hết rồi! Cảm ơn bé, mình bay theo bé nhé!" },
+      { "kind": "play", "subject": "g5-tangram", "tier": 0 },
+      { "kind": "play", "subject": "g5-viet", "tier": 0 },
+      { "kind": "chest", "reward": { "acc": "wings" } },
+      { "kind": "play", "subject": "g5-balance", "tier": 1 },
+      { "kind": "gate", "name": "Cổng Cầu Vồng", "hp": 3,
+        "intro": "Cổng Cầu Vồng bị mây đen che mất màu! Bé trả lời đúng 3 câu để mở cổng nhé!",
+        "outro": "Cầu vồng rực rỡ rồi! Mình vào Vườn Cầu Vồng nào!" },
+      { "kind": "story", "subject": "g5-word", "tier": 0, "npc": "bird", "npcName": "Chim Én",
+        "story": ["Gió thổi làm rối tung những câu chuyện của mình rồi!", "Bé sắp xếp lại các từ thành câu giúp mình nhé!"],
+        "thanks": "Câu chuyện hay quá! Cảm ơn bé!" },
+      { "kind": "play", "subject": "g5-sort", "tier": 0 },
+      { "kind": "play", "subject": "g5-memory", "tier": 0 },
+      { "kind": "rest", "name": "Trạm nghỉ trên mây", "options": [{ "subject": "g5-dance", "tier": 1 }, { "subject": "g5-tangram", "tier": 1 }] },
+      { "kind": "play", "subject": "g5-pattern", "tier": 2 },
+      { "kind": "gate", "name": "Cầu Mây", "hp": 3,
+        "intro": "Cầu Mây bị gió thổi tan mất! Bé trả lời đúng 3 câu để dựng lại cầu nhé!",
+        "outro": "Cầu Mây đã nối xong! Đỉnh Sấm Sét ở ngay phía trước!" },
+      { "kind": "play", "subject": "g5-coding", "tier": 2 },
+      { "kind": "story", "subject": "g5-math", "tier": 3, "npc": "cat", "npcName": "Mèo Bông",
+        "story": ["Meo! Mình đi chợ mây mà không biết tính phần trăm giảm giá!", "Bé tính giúp mình nhé!"],
+        "thanks": "Mua được đồ rẻ rồi! Cảm ơn bé!" },
+      { "kind": "play", "subject": "g5-viet", "tier": 3 },
+      { "kind": "chest", "reward": { "acc": "halo" } },
+      { "kind": "boss" }
+    ]
+  },
+  "subjects": [
+    {
+      "id": "g5-math", "type": "math", "subject": "math", "title": "Toán vui", "icon": "cloud", "pos": [200, 600],
+      "base": { "rounds": 8 },
+      "tiers": [
+        { "kinds": ["decAdd"] },
+        { "kinds": ["decAdd", "decSub"] },
+        { "kinds": ["decMul10"] },
+        { "kinds": ["percent"] },
+        { "kinds": ["area", "speed"] },
+        { "rounds": 10, "kinds": ["decAdd", "decSub", "decMul10", "percent", "area", "speed"] }
+      ]
+    },
+    {
+      "id": "g5-viet", "type": "match", "subject": "viet", "title": "Từ ngữ", "icon": "book", "pos": [340, 515],
+      "base": {
+        "lang": "vi-VN",
+        "vocab": [
+          { "label": "lạc quan", "word": "bi quan" }, { "label": "đoàn kết", "word": "chia rẽ" },
+          { "label": "hoà bình", "word": "chiến tranh" }, { "label": "trung thực", "word": "dối trá" },
+          { "label": "cẩn thận", "word": "cẩu thả" }, { "label": "khiêm tốn", "word": "kiêu ngạo" },
+          { "label": "xuất hiện", "word": "biến mất" }, { "label": "vinh", "word": "nhục" },
+          { "label": "gần", "word": "xa" }, { "label": "thành công", "word": "thất bại" },
+          { "label": "Uống nước", "word": "nhớ nguồn" }, { "label": "Lá lành", "word": "đùm lá rách" },
+          { "label": "Ăn quả", "word": "nhớ kẻ trồng cây" }, { "label": "Có công mài sắt", "word": "có ngày nên kim" },
+          { "label": "Gần mực thì đen", "word": "gần đèn thì sáng" }, { "label": "Một con ngựa đau", "word": "cả tàu bỏ cỏ" },
+          { "label": "Chị ngã", "word": "em nâng" }, { "label": "Tốt gỗ", "word": "hơn tốt nước sơn" },
+          { "label": "Thương người", "word": "như thể thương thân" }, { "label": "Học ăn, học nói", "word": "học gói, học mở" }
+        ]
+      },
+      "tiers": [
+        { "prompt": "Nối từ với từ trái nghĩa", "pairs": 4, "sets": 2, "vocabFrom": 0, "vocabSize": 10 },
+        { "prompt": "Nối từ với từ trái nghĩa", "pairs": 5, "sets": 3, "vocabFrom": 0, "vocabSize": 10 },
+        { "prompt": "Nối để thành câu tục ngữ", "pairs": 3, "sets": 2, "vocabFrom": 10, "vocabSize": 10 },
+        { "prompt": "Nối để thành câu tục ngữ", "pairs": 4, "sets": 3, "vocabFrom": 10, "vocabSize": 10 },
+        { "prompt": "Nối để thành câu tục ngữ", "pairs": 5, "sets": 3, "vocabFrom": 10, "vocabSize": 10 },
+        { "prompt": "Nối để thành câu tục ngữ", "pairs": 5, "sets": 4, "vocabFrom": 10, "vocabSize": 10, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g5-word", "type": "word", "subject": "viet", "title": "Ghép câu", "icon": "rainbow", "pos": [480, 600],
+      "base": { "rounds": 5, "extra": 2, "distractors": ["và", "nhưng", "vì", "nên", "rất", "đã", "sẽ", "cũng"] },
+      "tiers": [
+        { "mode": "sentence", "extra": 1, "words": [
+          { "tiles": ["Mây", "trắng", "bay", "lững lờ"], "item": "cloud" },
+          { "tiles": ["Cầu vồng", "hiện", "sau", "cơn mưa"], "item": "rainbow" },
+          { "tiles": ["Ngôi sao", "lấp lánh", "trên", "trời"], "item": "staritem" },
+          { "tiles": ["Ông", "mặt trời", "thức", "dậy"], "item": "sun" },
+          { "tiles": ["Gió", "thổi", "mát", "rượi"], "item": "cloud" }
+        ] },
+        { "mode": "fill", "sep": " ", "words": [
+          { "tiles": ["Vì", "trời", "mưa", "nên", "đường", "trơn"], "blank": [0], "options": ["Tuy", "Nếu"], "item": "cloud" },
+          { "tiles": ["Tuy", "nhà", "xa", "nhưng", "bạn", "không", "đi muộn"], "blank": [3], "options": ["nên", "và"], "item": "house" },
+          { "tiles": ["Nếu", "trời", "nắng", "thì", "chúng em", "đi", "cắm trại"], "blank": [3], "options": ["nhưng", "vì"], "item": "sun" },
+          { "tiles": ["Mẹ", "nấu cơm", "còn", "bố", "quét", "nhà"], "blank": [2], "options": ["vì", "nên"], "item": "house" },
+          { "tiles": ["Em", "học", "bài", "xong", "rồi", "đi", "ngủ"], "blank": [4], "options": ["nhưng", "vì"], "item": "book" }
+        ] },
+        { "mode": "sentence", "words": [
+          { "tiles": ["Vì", "trời", "mưa", "nên", "đường", "trơn"], "item": "cloud" },
+          { "tiles": ["Tuy", "trời", "lạnh", "nhưng", "em", "dậy sớm"], "item": "sun" },
+          { "tiles": ["Nếu", "chăm", "học", "thì", "em", "sẽ", "giỏi"], "item": "book" },
+          { "tiles": ["Mặt trời", "lên", "và", "sương", "tan", "dần"], "item": "sun" },
+          { "tiles": ["Gió", "thổi", "mạnh", "nên", "cây", "nghiêng", "ngả"], "item": "tree" }
+        ] },
+        { "mode": "fill", "sep": " ", "rounds": 4, "words": [
+          { "tiles": ["Tuy", "trời", "lạnh", "nhưng", "em", "vẫn", "dậy sớm"], "blank": [0, 3], "options": ["Vì", "nên"], "item": "sun" },
+          { "tiles": ["Vì", "bạn", "chăm", "học", "nên", "bạn", "học giỏi"], "blank": [0, 4], "options": ["Tuy", "nhưng"], "item": "book" },
+          { "tiles": ["Nếu", "trời", "mưa", "thì", "trận", "đấu", "hoãn lại"], "blank": [0, 3], "options": ["Vì", "nhưng"], "item": "cloud" },
+          { "tiles": ["Không", "chỉ", "học", "giỏi", "mà", "Lan", "còn", "hát hay"], "blank": [4, 6], "options": ["nên", "cũng"], "item": "note" }
+        ] },
+        { "mode": "sentence", "extra": 3, "rounds": 4, "words": [
+          { "tiles": ["Những", "đám mây", "trắng", "trôi", "lững lờ", "trên", "bầu trời"], "item": "cloud" },
+          { "tiles": ["Vì", "chăm", "tập", "thể dục", "nên", "em", "khoẻ mạnh"], "item": "ball" },
+          { "tiles": ["Tuy", "đường", "xa", "nhưng", "bố", "vẫn", "đến đúng giờ"], "item": "car" },
+          { "tiles": ["Cầu vồng", "bảy", "sắc", "hiện", "ra", "sau", "cơn mưa"], "item": "rainbow" }
+        ] },
+        { "mode": "sentence", "extra": 4, "rounds": 4, "words": [
+          { "tiles": ["Nếu", "mọi người", "cùng", "trồng cây", "thì", "Trái Đất", "sẽ", "xanh hơn"], "item": "tree" },
+          { "tiles": ["Không", "những", "học giỏi", "mà", "bạn", "Nam", "còn", "chăm làm"], "item": "book" },
+          { "tiles": ["Vì", "trời", "nổi", "giông", "nên", "đàn chim", "bay", "về tổ"], "item": "bird" },
+          { "tiles": ["Tuy", "còn", "nhỏ", "nhưng", "em", "đã", "biết", "giúp mẹ"], "item": "house" }
+        ] }
+      ]
+    },
+    {
+      "id": "g5-pattern", "type": "pattern", "subject": "logic", "title": "Tìm quy luật", "icon": "staritem", "pos": [620, 515],
+      "base": { "rounds": 5, "mode": "number" },
+      "tiers": [
+        { "seqKinds": ["up", "down"], "steps": [12, 15, 25], "startMax": 100, "hide": "mixed" },
+        { "seqKinds": ["geo"], "factors": [2, 3], "len": 6, "hide": "mixed" },
+        { "seqKinds": ["alt", "grow"], "steps": [7, 11, 15], "startMax": 100, "hide": "middle", "choices": 4 },
+        { "seqKinds": ["geo", "grow"], "factors": [3, 4], "len": 5, "hide": "middle", "choices": 4 },
+        { "seqKinds": ["geo", "alt", "grow"], "factors": [2, 5], "steps": [13, 17, 19], "startMax": 150, "len": 6, "hide": "middle", "choices": 4 },
+        { "rounds": 6, "seqKinds": ["geo", "alt", "grow", "down"], "factors": [3, 4, 5], "steps": [17, 19, 23], "startMax": 200, "len": 6, "hide": "middle", "choices": 4 }
+      ]
+    },
+    {
+      "id": "g5-english", "type": "match", "subject": "english", "title": "Tiếng Anh", "icon": "bee", "pos": [760, 600],
+      "base": {
+        "prompt": "Nối từ tiếng Việt với từ tiếng Anh",
+        "vocab": [
+          { "label": "bãi biển", "word": "beach" }, { "label": "núi", "word": "mountain" }, { "label": "công viên", "word": "park" },
+          { "label": "bảo tàng", "word": "museum" }, { "label": "sở thú", "word": "zoo" }, { "label": "thư viện", "word": "library" },
+          { "label": "bơi lội", "word": "swimming" }, { "label": "đọc sách", "word": "reading" }, { "label": "vẽ tranh", "word": "drawing" },
+          { "label": "nấu ăn", "word": "cooking" }, { "label": "ca hát", "word": "singing" }, { "label": "nhảy múa", "word": "dancing" },
+          { "label": "mùa xuân", "word": "spring" }, { "label": "mùa hè", "word": "summer" }, { "label": "mùa thu", "word": "autumn" },
+          { "label": "mùa đông", "word": "winter" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 3, "sets": 2, "vocabFrom": 0, "vocabSize": 6 },
+        { "pairs": 4, "sets": 2, "vocabFrom": 6, "vocabSize": 6 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 12, "vocabSize": 4 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 0, "vocabSize": 12 },
+        { "pairs": 5, "sets": 3, "vocabFrom": 0, "vocabSize": 16 },
+        { "pairs": 5, "sets": 4, "vocabFrom": 0, "vocabSize": 16, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g5-sort", "type": "sort", "subject": "sort", "title": "Phân loại", "icon": "boxes", "pos": [900, 515],
+      "base": {
+        "groups": {
+          "seasons": {
+            "bins": [{ "name": "Mùa hè", "icon": "sun" }, { "name": "Mùa đông", "icon": "cloud" }],
+            "items": [
+              { "label": "nắng nóng", "bin": 0 }, { "label": "kem", "bin": 0 }, { "label": "quạt điện", "bin": 0 }, { "label": "đồ bơi", "bin": 0 }, { "label": "ve kêu", "bin": 0 },
+              { "label": "áo ấm", "bin": 1 }, { "label": "khăn len", "bin": 1 }, { "label": "gió rét", "bin": 1 }, { "label": "chăn bông", "bin": 1 }, { "label": "găng tay", "bin": 1 }
+            ]
+          },
+          "bigSmall": {
+            "bins": [{ "name": "Nghĩa là \"to\"" }, { "name": "Nghĩa là \"nhỏ\"" }],
+            "items": [
+              { "label": "khổng lồ", "bin": 0 }, { "label": "to lớn", "bin": 0 }, { "label": "vĩ đại", "bin": 0 }, { "label": "đồ sộ", "bin": 0 }, { "label": "to tướng", "bin": 0 },
+              { "label": "bé xíu", "bin": 1 }, { "label": "tí hon", "bin": 1 }, { "label": "nhỏ nhắn", "bin": 1 }, { "label": "li ti", "bin": 1 }, { "label": "bé tí", "bin": 1 }
+            ]
+          },
+          "feelings": {
+            "bins": [{ "name": "Vui" }, { "name": "Buồn" }, { "name": "Đẹp" }],
+            "items": [
+              { "label": "vui vẻ", "bin": 0 }, { "label": "hớn hở", "bin": 0 }, { "label": "phấn khởi", "bin": 0 }, { "label": "tươi cười", "bin": 0 },
+              { "label": "buồn bã", "bin": 1 }, { "label": "rầu rĩ", "bin": 1 }, { "label": "ủ rũ", "bin": 1 }, { "label": "u sầu", "bin": 1 },
+              { "label": "xinh xắn", "bin": 2 }, { "label": "lộng lẫy", "bin": 2 }, { "label": "duyên dáng", "bin": 2 }, { "label": "tươi tắn", "bin": 2 }
+            ]
+          }
+        }
+      },
+      "tiers": [
+        { "group": "seasons", "rounds": 8 },
+        { "rule": "vsOne", "form": "dec", "rounds": 8 },
+        { "group": "bigSmall", "rounds": 9 },
+        { "rule": "divisible", "by": 9, "min": 50, "max": 999, "rounds": 10 },
+        { "rule": "vsOne", "form": "frac", "rounds": 10 },
+        { "group": "feelings", "rounds": 12 }
+      ]
+    },
+    {
+      "id": "g5-memory", "type": "memory", "subject": "memory", "title": "Lật thẻ", "icon": "cards", "pos": [1050, 590],
+      "base": {},
+      "tiers": [
+        { "pairs": 4, "mode": "pairs", "peek": 1500, "list": [
+          { "a": "0,5", "b": "1/2" }, { "a": "0,25", "b": "1/4" }, { "a": "0,75", "b": "3/4" }, { "a": "0,1", "b": "1/10" },
+          { "a": "0,2", "b": "1/5" }, { "a": "0,4", "b": "2/5" }, { "a": "0,6", "b": "3/5" }, { "a": "0,8", "b": "4/5" }
+        ] },
+        { "pairs": 5, "mode": "pairs", "list": [
+          { "a": "0,5", "b": "1/2" }, { "a": "0,25", "b": "1/4" }, { "a": "0,75", "b": "3/4" }, { "a": "0,1", "b": "1/10" },
+          { "a": "0,2", "b": "1/5" }, { "a": "0,4", "b": "2/5" }, { "a": "0,6", "b": "3/5" }, { "a": "0,8", "b": "4/5" }
+        ] },
+        { "pairs": 5, "mode": "pairs", "list": [
+          { "a": "50%", "b": "1/2" }, { "a": "25%", "b": "1/4" }, { "a": "75%", "b": "3/4" }, { "a": "10%", "b": "1/10" },
+          { "a": "20%", "b": "1/5" }, { "a": "40%", "b": "2/5" }, { "a": "60%", "b": "3/5" }, { "a": "80%", "b": "4/5" }
+        ] },
+        { "pairs": 6, "mode": "pairs", "list": [
+          { "a": "Uống nước", "b": "nhớ nguồn" }, { "a": "Lá lành", "b": "đùm lá rách" }, { "a": "Chị ngã", "b": "em nâng" },
+          { "a": "Ăn quả", "b": "nhớ kẻ trồng cây" }, { "a": "Tốt gỗ", "b": "hơn tốt nước sơn" }, { "a": "Thương người", "b": "như thể thương thân" }
+        ] },
+        { "pairs": 6, "mode": "pairs", "list": [
+          { "a": "50%", "b": "0,5" }, { "a": "25%", "b": "0,25" }, { "a": "75%", "b": "0,75" }, { "a": "10%", "b": "0,1" },
+          { "a": "20%", "b": "0,2" }, { "a": "40%", "b": "0,4" }, { "a": "5%", "b": "0,05" }, { "a": "100%", "b": "1" }
+        ] },
+        { "pairs": 8, "mode": "pairs", "list": [
+          { "a": "50%", "b": "1/2" }, { "a": "0,25", "b": "1/4" }, { "a": "75%", "b": "0,75" }, { "a": "1/10", "b": "10%" },
+          { "a": "0,2", "b": "1/5" }, { "a": "40%", "b": "2/5" }, { "a": "0,6", "b": "60%" }, { "a": "4/5", "b": "0,8" }
+        ] }
+      ]
+    },
+    {
+      "id": "g5-balance", "type": "balance", "subject": "balance", "title": "Cân thăng bằng", "icon": "scale", "pos": [1170, 430],
+      "base": { "rounds": 5, "blocks": [1, 2, 5, 10, 20, 50, 100] },
+      "tiers": [
+        { "left": "sum2", "max": 200 },
+        { "left": "mul", "tables": [7, 8, 9] },
+        { "left": "single", "min": 50, "max": 200, "unique": true, "shelfSize": 6 },
+        { "left": "sum2", "given": true, "maxBlocks": 3, "showSum": false },
+        { "left": "mul", "tables": [8, 9], "showSum": false },
+        { "left": "sum2", "given": true, "maxBlocks": 2, "showSum": false, "rounds": 6 }
+      ]
+    },
+    {
+      "id": "g5-coding", "type": "coding", "subject": "coding", "title": "Lập trình robot", "icon": "robot", "pos": [1040, 340],
+      "base": { "rounds": 4 },
+      "tiers": [
+        { "size": 6, "obstacles": 8, "slack": 1, "minRuns": 3 },
+        { "size": 7, "obstacles": 12, "slack": 1, "minRuns": 4 },
+        { "size": 7, "obstacles": 14, "slack": 0, "minRuns": 4 },
+        { "size": 7, "obstacles": 15, "slack": 0, "minRuns": 5, "minLen": 10 },
+        { "size": 7, "obstacles": 16, "slack": 0, "minRuns": 5, "minLen": 11 },
+        { "size": 7, "obstacles": 17, "slack": 0, "minRuns": 6, "minLen": 12 }
+      ]
+    },
+    {
+      "id": "g5-tangram", "type": "tangram", "subject": "tangram", "title": "Ghép hình", "icon": "house", "pos": [890, 300],
+      "base": {},
+      "tiers": [
+        { "figures": ["cat", "fish"], "hints": true, "rotate": true },
+        { "figures": ["tree", "cat", "boat"], "rotate": true },
+        { "figures": ["fish", "cat", "house"], "rotate": true, "decoy": true },
+        { "figures": ["cat", "tree", "fish"], "rotate": true, "decoy": true },
+        { "figures": ["boat", "cat", "fish", "tree"], "rotate": true, "decoy": true },
+        { "figures": ["cat", "fish", "tree", "boat", "house"], "rotate": true, "decoy": true }
+      ]
+    },
+    {
+      "id": "g5-dance", "type": "dance", "subject": "dance", "title": "Nhảy theo nhạc", "icon": "note", "pos": [740, 340],
+      "base": { "rapid": 0 },
+      "tiers": [
+        { "bpm": 104, "lanes": 4, "slow": 2, "fast": 20 },
+        { "bpm": 112, "lanes": 4, "slow": 0, "fast": 24, "rapid": 6 },
+        { "bpm": 118, "lanes": 4, "slow": 0, "fast": 24, "rapid": 12 },
+        { "bpm": 124, "lanes": 4, "slow": 0, "fast": 26, "rapid": 18 },
+        { "bpm": 130, "lanes": 4, "slow": 0, "fast": 28, "rapid": 24 },
+        { "bpm": 138, "lanes": 4, "slow": 0, "fast": 30, "rapid": 30 }
+      ]
+    }
+  ],
+  "boss": {
+    "id": "g5-boss", "type": "boss", "subject": "mixed", "title": "Rồng Sấm Sét", "icon": "boss5", "sticker": "boss5_happy",
+    "pos": [580, 290], "requiredStars": 30,
+    "config": {
+      "hp": 9,
+      "art": "boss5",
+      "intro": "Rồng Sấm Sét kéo mây đen đến khắp đảo! Bé trả lời đúng để đánh bại rồng nhé!",
+      "outro": "Hoan hô! Bầu trời lại trong xanh và Rồng đã thành bạn của bé!",
+      "types": ["math", "pair", "seq", "math", "pair", "clock", "math", "pair"],
+      "math": { "kinds": ["decAdd", "decSub", "percent", "area", "speed"] },
+      "pairPrompt": "Chọn vế còn lại của câu tục ngữ",
+      "pairs": [
+        { "q": "Uống nước", "a": "nhớ nguồn" }, { "q": "Lá lành", "a": "đùm lá rách" }, { "q": "Ăn quả", "a": "nhớ kẻ trồng cây" },
+        { "q": "Có công mài sắt", "a": "có ngày nên kim" }, { "q": "Chị ngã", "a": "em nâng" }, { "q": "Tốt gỗ", "a": "hơn tốt nước sơn" },
+        { "q": "Thương người", "a": "như thể thương thân" }, { "q": "Gần mực thì đen", "a": "gần đèn thì sáng" }
+      ]
+    }
+  }
+}

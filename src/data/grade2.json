@@ -1,0 +1,401 @@
+{
+  "id": "grade2",
+  "name": "Đảo Hướng Dương",
+  "grade": 2,
+  "bg": "bg_island2",
+  "tree": [330, 268],
+  "world": [420, 300],
+  "icon": "sunflower",
+  "icon2": "clock",
+  "color": "#c8e98c",
+  "unlock": { "boss": "g1-boss", "island": "grade1" },
+  "decor": ["sunflower", "tree", "flower"],
+  "journey": {
+    "regions": [
+      { "name": "Cánh Đồng Hướng Dương", "from": 0 },
+      { "name": "Làng Đồng Hồ", "from": 7 },
+      { "name": "Núi Gió Xoáy", "from": 13 }
+    ],
+    "stops": [
+      { "kind": "play", "subject": "g2-math", "tier": 0 },
+      { "kind": "story", "subject": "g2-time", "tier": 0, "npc": "duck", "npcName": "Vịt Con",
+        "story": ["Quạc quạc! Mình sắp trễ giờ đi học rồi!", "Bé xem đồng hồ giúp mình bây giờ là mấy giờ nhé!"],
+        "thanks": "Kịp giờ rồi! Cảm ơn bé, mình đi cùng bé nhé!" },
+      { "kind": "play", "subject": "g2-balance", "tier": 0 },
+      { "kind": "play", "subject": "g2-word", "tier": 2 },
+      { "kind": "chest", "reward": { "acc": "crown" } },
+      { "kind": "play", "subject": "g2-coding", "tier": 0 },
+      { "kind": "gate", "name": "Cổng Hướng Dương", "hp": 3,
+        "intro": "Cổng Hướng Dương bị gió thổi đóng chặt rồi! Bé trả lời đúng 3 câu để mở cổng nhé!",
+        "outro": "Cổng mở rồi! Mình vào Làng Đồng Hồ nào!" },
+      { "kind": "story", "subject": "g2-maze", "tier": 0, "npc": "pig", "npcName": "Lợn Con",
+        "story": ["Ụt ịt! Mình bị lạc trong mê cung của làng rồi!", "Bé đi theo các số để dẫn mình ra ngoài nhé!"],
+        "thanks": "Ra được rồi! Cảm ơn bé, mình đi theo bé nhé!" },
+      { "kind": "play", "subject": "g2-pattern", "tier": 1 },
+      { "kind": "play", "subject": "g2-match", "tier": 1 },
+      { "kind": "rest", "name": "Trạm nghỉ dưới tháp", "options": [{ "subject": "g2-color", "tier": 1 }, { "subject": "g2-dance", "tier": 0 }] },
+      { "kind": "play", "subject": "g2-balance", "tier": 2 },
+      { "kind": "gate", "name": "Tháp Đồng Hồ", "hp": 3,
+        "intro": "Tháp Đồng Hồ chặn đường lên núi! Bé trả lời đúng 3 câu để mở đường nhé!",
+        "outro": "Đường lên Núi Gió Xoáy đã mở!" },
+      { "kind": "play", "subject": "g2-coding", "tier": 2 },
+      { "kind": "story", "subject": "g2-catch", "tier": 3, "npc": "cat", "npcName": "Mèo Con",
+        "story": ["Meo meo! Gió thổi bay hết quả của mình rồi!", "Bé hứng giúp mình các quả theo bảng nhân 2 nhé!"],
+        "thanks": "Đủ quả rồi! Cảm ơn bé, mình đi cùng bé nhé!" },
+      { "kind": "play", "subject": "g2-math", "tier": 3 },
+      { "kind": "chest", "reward": { "acc": "flower" } },
+      { "kind": "boss" }
+    ]
+  },
+  "subjects": [
+    {
+      "id": "g2-math", "type": "math", "subject": "math", "title": "Toán vui", "icon": "pencil", "pos": [200, 600],
+      "base": { "rounds": 8, "tables": [2, 5] },
+      "tiers": [
+        { "kinds": ["add", "sub"], "max": 20, "mustCarry": true },
+        { "kinds": ["add", "sub", "missing"], "max": 100, "mustCarry": true },
+        { "kinds": ["mul"] },
+        { "kinds": ["mul", "div", "mulmissing"] },
+        { "kinds": ["add", "sub", "mul", "div", "missing"], "max": 100, "mustCarry": true },
+        { "rounds": 10, "kinds": ["add", "sub", "mixmul"], "max": 1000, "noCarry": true }
+      ]
+    },
+    {
+      "id": "g2-time", "type": "clock", "subject": "time", "title": "Xem đồng hồ", "icon": "clock", "pos": [340, 515],
+      "base": { "rounds": 6 },
+      "tiers": [
+        { "mode": "read", "step": 60, "choices": 3 },
+        { "mode": "read", "step": 30, "choices": 3 },
+        { "mode": "read", "step": 15, "choices": 3 },
+        { "mode": "read", "step": 5, "choices": 4 },
+        { "mode": "pick", "step": 5, "choices": 3 },
+        { "mode": "pick", "step": 5, "choices": 4, "kem": true, "close": true }
+      ]
+    },
+    {
+      "id": "g2-word", "type": "word", "subject": "viet", "title": "Ghép chữ", "icon": "book", "pos": [480, 600],
+      "base": {
+        "rounds": 5, "extra": 2,
+        "distractors": ["a", "o", "e", "b", "t", "n", "u", "i", "ô", "ơ", "d", "l", "m", "s", "k", "x"]
+      },
+      "tiers": [
+        { "words": [
+          { "tiles": ["b", "ú", "t"], "item": "pencil", "say": "cái bút" },
+          { "tiles": ["s", "á", "ch"], "item": "book", "say": "quyển sách" },
+          { "tiles": ["c", "ặ", "p"], "item": "bag", "say": "cái cặp" },
+          { "tiles": ["b", "ó", "ng"], "item": "ball", "say": "quả bóng" },
+          { "tiles": ["ch", "i", "m"], "item": "bird", "say": "con chim" },
+          { "tiles": ["v", "ị", "t"], "item": "duck", "say": "con vịt" },
+          { "tiles": ["th", "ỏ"], "item": "rabbit", "say": "con thỏ" },
+          { "tiles": ["x", "e"], "item": "car", "say": "xe ô tô" },
+          { "tiles": ["gh", "ế"], "item": "chair", "say": "cái ghế" },
+          { "tiles": ["l", "ợ", "n"], "item": "pig", "say": "con lợn" }
+        ] },
+        { "extra": 3, "similar": true, "words": [
+          { "tiles": ["s", "á", "c", "h"], "item": "book", "say": "quyển sách" },
+          { "tiles": ["b", "ó", "n", "g"], "item": "ball", "say": "quả bóng" },
+          { "tiles": ["c", "h", "i", "m"], "item": "bird", "say": "con chim" },
+          { "tiles": ["g", "h", "ế"], "item": "chair", "say": "cái ghế" },
+          { "tiles": ["t", "h", "ỏ"], "item": "rabbit", "say": "con thỏ" },
+          { "tiles": ["l", "ợ", "n"], "item": "pig", "say": "con lợn" },
+          { "tiles": ["v", "ị", "t"], "item": "duck", "say": "con vịt" }
+        ] },
+        { "mode": "fill", "words": [
+          { "tiles": ["ch", "im"], "blank": [0], "options": ["tr"], "item": "bird", "say": "con chim" },
+          { "tiles": ["ch", "ó"], "blank": [0], "options": ["tr"], "item": "dog", "say": "con chó" },
+          { "tiles": ["tr", "ăng"], "blank": [0], "options": ["ch"], "item": "moon", "say": "mặt trăng" },
+          { "tiles": ["ch", "uối"], "blank": [0], "options": ["tr"], "item": "banana", "say": "quả chuối" },
+          { "tiles": ["s", "ách"], "blank": [0], "options": ["x"], "item": "book", "say": "quyển sách" },
+          { "tiles": ["s", "ao"], "blank": [0], "options": ["x"], "item": "staritem", "say": "ngôi sao" },
+          { "tiles": ["x", "e"], "blank": [0], "options": ["s"], "item": "car", "say": "xe ô tô" }
+        ] },
+        { "mode": "fill", "words": [
+          { "tiles": ["gi", "ỏ"], "blank": [0], "options": ["d", "r"], "item": "basket", "say": "cái giỏ" },
+          { "tiles": ["d", "âu"], "blank": [0], "options": ["gi", "r"], "item": "strawberry", "say": "quả dâu" },
+          { "tiles": ["l", "ợn"], "blank": [0], "options": ["n"], "item": "pig", "say": "con lợn" },
+          { "tiles": ["g", "à"], "blank": [0], "options": ["gh"], "item": "chicken", "say": "con gà" },
+          { "tiles": ["gh", "ế"], "blank": [0], "options": ["g"], "item": "chair", "say": "cái ghế" },
+          { "tiles": ["nh", "à"], "blank": [0], "options": ["ng"], "item": "house", "say": "ngôi nhà" }
+        ] },
+        { "mode": "fill", "words": [
+          { "tiles": ["ch", "im"], "blank": [1], "options": ["inh", "iêm"], "item": "bird", "say": "con chim" },
+          { "tiles": ["b", "óng"], "blank": [1], "options": ["ông", "óc"], "item": "ball", "say": "quả bóng" },
+          { "tiles": ["v", "ịt"], "blank": [1], "options": ["iệt", "ịch"], "item": "duck", "say": "con vịt" },
+          { "tiles": ["th", "ỏ"], "blank": [1], "options": ["ở", "ổ"], "item": "rabbit", "say": "con thỏ" },
+          { "tiles": ["s", "ách"], "blank": [1], "options": ["ạch", "ác"], "item": "book", "say": "quyển sách" },
+          { "tiles": ["tr", "ăng"], "blank": [1], "options": ["ăn", "âng"], "item": "moon", "say": "mặt trăng" },
+          { "tiles": ["ch", "uối"], "blank": [1], "options": ["ối", "uổi"], "item": "banana", "say": "quả chuối" }
+        ] },
+        { "mode": "sentence", "rounds": 6, "extra": 2, "similar": false,
+          "distractors": ["mẹ", "học", "to", "nhỏ", "vui", "đẹp", "ăn", "ngủ"],
+          "words": [
+            { "tiles": ["Mèo", "bắt", "cá"], "item": "cat", "say": "Mèo bắt cá" },
+            { "tiles": ["Bé", "đá", "bóng"], "item": "ball", "say": "Bé đá bóng" },
+            { "tiles": ["Chim", "bay", "cao"], "item": "bird", "say": "Chim bay cao" },
+            { "tiles": ["Vịt", "bơi", "dưới", "ao"], "item": "duck", "say": "Vịt bơi dưới ao" },
+            { "tiles": ["Thỏ", "nhảy", "rất", "nhanh"], "item": "rabbit", "say": "Thỏ nhảy rất nhanh" },
+            { "tiles": ["Xe", "chạy", "trên", "đường"], "item": "car", "say": "Xe chạy trên đường" }
+          ] }
+      ]
+    },
+    {
+      "id": "g2-pattern", "type": "pattern", "subject": "logic", "title": "Tìm quy luật", "icon": "ball", "pos": [620, 515],
+      "base": { "rounds": 5, "pool": ["sunflower", "bird", "duck", "pig", "rabbit", "ball", "car", "book", "pencil"] },
+      "tiers": [
+        { "patterns": ["ABC", "ABC", "AABB", "ABCC"], "hide": "mixed", "choices": 4 },
+        { "mode": "number", "seqKinds": ["up"], "steps": [1, 2], "startMax": 20, "hide": "last" },
+        { "mode": "number", "seqKinds": ["up"], "steps": [2, 5, 10], "startMax": 30, "hide": "mixed" },
+        { "mode": "number", "seqKinds": ["down", "up"], "steps": [2, 5, 10], "startMax": 30, "hide": "mixed" },
+        { "mode": "number", "seqKinds": ["alt"], "steps": [1, 2, 3], "startMax": 20, "hide": "mixed", "choices": 4 },
+        { "mode": "number", "rounds": 6, "seqKinds": ["grow", "alt", "down"], "steps": [2, 3, 5], "startMax": 30, "hide": "middle", "choices": 4 }
+      ]
+    },
+    {
+      "id": "g2-maze", "type": "maze", "subject": "maze", "title": "Mê cung số", "icon": "rabbit", "pos": [760, 600],
+      "base": {},
+      "tiers": [
+        { "size": 4, "rule": "seq", "step": 1 },
+        { "size": 5, "rule": "even" },
+        { "size": 5, "rule": "seq", "step": 2 },
+        { "size": 5, "rule": "sum", "target": 10, "ops": ["add"] },
+        { "size": 6, "rule": "table", "table": 5 },
+        { "size": 6, "rule": "sum", "target": 20, "ops": ["add", "sub", "mul"] }
+      ]
+    },
+    {
+      "id": "g2-match", "type": "match", "subject": "english", "title": "Tiếng Anh", "icon": "bird", "pos": [900, 515],
+      "base": {
+        "vocab": [
+          { "word": "red", "color": "#ff4d4d" }, { "word": "blue", "color": "#4a90e2" }, { "word": "green", "color": "#5cc95c" },
+          { "word": "yellow", "color": "#ffd23f" }, { "word": "pink", "color": "#ff8fc8" }, { "word": "purple", "color": "#9b6be0" },
+          { "word": "orange", "color": "#ff9a3c" }, { "word": "brown", "color": "#a0683f" },
+          { "word": "one", "label": "1" }, { "word": "two", "label": "2" }, { "word": "three", "label": "3" },
+          { "word": "four", "label": "4" }, { "word": "five", "label": "5" }, { "word": "six", "label": "6" },
+          { "word": "seven", "label": "7" }, { "word": "eight", "label": "8" }, { "word": "nine", "label": "9" },
+          { "word": "ten", "label": "10" },
+          { "word": "pencil", "item": "pencil" }, { "word": "book", "item": "book" }, { "word": "bag", "item": "bag" },
+          { "word": "ball", "item": "ball" }, { "word": "chair", "item": "chair" }, { "word": "car", "item": "car" },
+          { "word": "bird", "item": "bird" }, { "word": "duck", "item": "duck" }, { "word": "pig", "item": "pig" },
+          { "word": "rabbit", "item": "rabbit" }, { "word": "cat", "item": "cat" }, { "word": "dog", "item": "dog" },
+          { "word": "cow", "item": "cow" }, { "word": "chicken", "item": "chicken" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 3, "sets": 2, "vocabFrom": 0, "vocabSize": 8 },
+        { "pairs": 4, "sets": 2, "vocabFrom": 8, "vocabSize": 10 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 18, "vocabSize": 6 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 24, "vocabSize": 8 },
+        { "pairs": 5, "sets": 3, "vocabFrom": 0, "vocabSize": 32 },
+        { "pairs": 5, "sets": 4, "vocabFrom": 0, "vocabSize": 32, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g2-color", "type": "color", "subject": "art", "title": "Tô màu", "icon": "sunflower", "pos": [1050, 590],
+      "base": {
+        "pictures": [
+          {
+            "id": "sunflower", "name": "Hoa hướng dương",
+            "colors": ["#ffd166", "#c08552", "#7ed957", "#8fd3ff"],
+            "regions": [
+              { "n": 4, "r": [0, 0, 600, 480], "l": [70, 70] },
+              { "n": 3, "r": [289, 250, 22, 230], "l": [300, 430] },
+              { "n": 3, "e": [365, 370, 60, 22] },
+              { "n": 1, "c": [300, 200, 125], "l": [300, 100] },
+              { "n": 2, "c": [300, 200, 65] }
+            ]
+          },
+          {
+            "id": "bird", "name": "Chim trên cành",
+            "colors": ["#6cc4ff", "#ffa45c", "#c08552", "#7ed957", "#fff3b0", "#b892ff"],
+            "regions": [
+              { "n": 5, "r": [0, 0, 600, 480], "l": [60, 60] },
+              { "n": 3, "p": [0, 330, 600, 290, 600, 320, 0, 360], "l": [100, 338] },
+              { "n": 4, "e": [480, 270, 50, 22] },
+              { "n": 4, "e": [140, 368, 45, 20] },
+              { "n": 6, "p": [215, 240, 160, 215, 170, 270] },
+              { "n": 1, "e": [300, 250, 90, 65], "l": [235, 292] },
+              { "n": 6, "e": [290, 250, 50, 30] },
+              { "n": 1, "c": [370, 190, 45], "l": [362, 172] },
+              { "n": 2, "p": [410, 180, 452, 192, 410, 206], "l": [422, 193] }
+            ]
+          },
+          {
+            "id": "car", "name": "Ô tô đỏ",
+            "colors": ["#ff6b6b", "#8fd3ff", "#8a7f93", "#7ed957", "#ffd166"],
+            "regions": [
+              { "n": 2, "r": [0, 0, 600, 480], "l": [60, 60] },
+              { "n": 4, "r": [0, 380, 600, 100], "l": [60, 440] },
+              { "n": 5, "c": [520, 80, 45] },
+              { "n": 1, "p": [80, 330, 100, 270, 200, 260, 250, 190, 400, 190, 460, 260, 530, 280, 530, 330], "l": [120, 310] },
+              { "n": 2, "p": [265, 205, 320, 205, 320, 260, 225, 260], "l": [285, 235] },
+              { "n": 2, "p": [335, 205, 390, 205, 440, 260, 335, 260], "l": [370, 235] },
+              { "n": 3, "c": [180, 340, 42], "l": [180, 312] },
+              { "n": 5, "c": [180, 340, 16] },
+              { "n": 3, "c": [430, 340, 42], "l": [430, 312] },
+              { "n": 5, "c": [430, 340, 16] },
+              { "n": 5, "e": [515, 298, 12, 10] }
+            ]
+          },
+          {
+            "id": "rabbit", "name": "Thỏ con và củ cà rốt",
+            "colors": ["#ffc2d1", "#f2e6d8", "#7ed957", "#ffa45c", "#8fd3ff", "#b892ff"],
+            "regions": [
+              { "n": 5, "r": [0, 0, 600, 480], "l": [60, 60] },
+              { "n": 3, "p": [0, 380, 200, 360, 400, 375, 600, 355, 600, 480, 0, 480], "l": [80, 440] },
+              { "n": 2, "e": [250, 110, 26, 75], "l": [250, 52] },
+              { "n": 1, "e": [250, 115, 12, 52] },
+              { "n": 2, "e": [350, 110, 26, 75], "l": [350, 52] },
+              { "n": 1, "e": [350, 115, 12, 52] },
+              { "n": 2, "e": [300, 350, 110, 85], "l": [220, 370] },
+              { "n": 2, "c": [300, 230, 85], "l": [300, 180] },
+              { "n": 1, "c": [255, 255, 16] },
+              { "n": 1, "c": [345, 255, 16] },
+              { "n": 6, "p": [255, 312, 300, 328, 255, 344], "l": [270, 328] },
+              { "n": 6, "p": [345, 312, 300, 328, 345, 344], "l": [330, 328] },
+              { "n": 4, "p": [420, 330, 470, 300, 520, 430] },
+              { "n": 3, "p": [455, 305, 470, 262, 488, 300] },
+              { "n": 6, "c": [90, 330, 22] },
+              { "n": 1, "c": [540, 330, 20] }
+            ]
+          },
+          {
+            "id": "balloons", "name": "Chùm bóng bay",
+            "colors": ["#ff6b6b", "#ffd166", "#8fd3ff", "#7ed957", "#b892ff", "#ff8fab", "#c08552"],
+            "regions": [
+              { "n": 3, "r": [0, 0, 600, 480], "l": [60, 60] },
+              { "n": 2, "c": [540, 70, 40] },
+              { "n": 4, "p": [0, 400, 150, 370, 300, 390, 450, 365, 600, 390, 600, 480, 0, 480], "l": [80, 445] },
+              { "n": 7, "r": [40, 300, 22, 100], "l": [51, 370] },
+              { "n": 4, "c": [51, 280, 45], "l": [51, 262] },
+              { "line": [150, 250, 310, 400] },
+              { "line": [260, 210, 310, 400] },
+              { "line": [370, 245, 310, 400] },
+              { "line": [470, 195, 310, 400] },
+              { "line": [220, 318, 310, 400] },
+              { "n": 6, "e": [220, 260, 45, 58], "l": [220, 280] },
+              { "n": 1, "e": [150, 180, 55, 70], "l": [150, 145] },
+              { "n": 2, "e": [260, 140, 55, 70], "l": [260, 105] },
+              { "n": 5, "e": [370, 175, 55, 70], "l": [370, 140] },
+              { "n": 4, "e": [470, 130, 50, 65], "l": [470, 98] },
+              { "n": 2, "e": [150, 180, 55, 12] },
+              { "n": 6, "e": [370, 175, 55, 12] },
+              { "n": 1, "e": [470, 130, 50, 12] },
+              { "n": 6, "r": [270, 400, 80, 60], "l": [288, 432] },
+              { "n": 2, "r": [303, 400, 14, 60] },
+              { "n": 5, "r": [262, 388, 96, 18], "l": [285, 397] }
+            ]
+          },
+          {
+            "id": "castle", "name": "Lâu đài và cầu vồng",
+            "colors": ["#ff6b6b", "#ffd166", "#8fd3ff", "#7ed957", "#b892ff", "#ff8fab", "#ffa45c", "#f2e6d8"],
+            "regions": [
+              { "n": 3, "r": [0, 0, 600, 480], "l": [50, 40] },
+              { "n": 1, "p": [20, 330, 30, 258, 58, 190, 102, 132, 160, 88, 228, 60, 300, 50, 372, 60, 440, 88, 498, 132, 542, 190, 570, 258, 580, 330, 550, 330, 541, 265, 517, 205, 477, 153, 425, 113, 365, 89, 300, 80, 235, 89, 175, 113, 123, 153, 83, 205, 59, 265, 50, 330], "l": [300, 65] },
+              { "n": 7, "p": [50, 330, 59, 265, 83, 205, 123, 153, 175, 113, 235, 89, 300, 80, 365, 89, 425, 113, 477, 153, 517, 205, 541, 265, 550, 330, 520, 330, 513, 273, 491, 220, 456, 174, 410, 139, 357, 117, 300, 110, 243, 117, 190, 139, 144, 174, 109, 220, 87, 273, 80, 330], "l": [300, 95] },
+              { "n": 2, "p": [80, 330, 87, 273, 109, 220, 144, 174, 190, 139, 243, 117, 300, 110, 357, 117, 410, 139, 456, 174, 491, 220, 513, 273, 520, 330, 490, 330, 484, 281, 465, 235, 434, 196, 395, 165, 349, 146, 300, 140, 251, 146, 205, 165, 166, 196, 135, 235, 116, 281, 110, 330], "l": [300, 125] },
+              { "n": 4, "p": [110, 330, 116, 281, 135, 235, 166, 196, 205, 165, 251, 146, 300, 140, 349, 146, 395, 165, 434, 196, 465, 235, 484, 281, 490, 330, 460, 330, 455, 289, 439, 250, 413, 217, 380, 191, 341, 175, 300, 170, 259, 175, 220, 191, 187, 217, 161, 250, 145, 289, 140, 330], "l": [300, 155] },
+              { "n": 5, "p": [140, 330, 145, 289, 161, 250, 187, 217, 220, 191, 259, 175, 300, 170, 341, 175, 380, 191, 413, 217, 439, 250, 455, 289, 460, 330, 430, 330, 426, 296, 413, 265, 392, 238, 365, 217, 334, 204, 300, 200, 266, 204, 235, 217, 208, 238, 187, 265, 174, 296, 170, 330], "l": [300, 185] },
+              { "n": 4, "r": [0, 390, 600, 90], "l": [60, 440] },
+              { "n": 8, "r": [160, 200, 60, 190], "l": [182, 330] },
+              { "n": 8, "r": [380, 200, 60, 190], "l": [418, 330] },
+              { "n": 1, "p": [150, 200, 190, 130, 230, 200] },
+              { "n": 1, "p": [370, 200, 410, 130, 450, 200] },
+              { "n": 6, "r": [200, 250, 200, 140], "l": [235, 360] },
+              { "n": 6, "r": [215, 232, 30, 20] },
+              { "n": 6, "r": [285, 232, 30, 20] },
+              { "n": 6, "r": [355, 232, 30, 20] },
+              { "n": 5, "r": [270, 320, 60, 70, 12] },
+              { "n": 2, "c": [190, 250, 12] },
+              { "n": 2, "c": [410, 250, 12] },
+              { "n": 2, "c": [300, 285, 14] },
+              { "line": [190, 130, 190, 96] },
+              { "line": [410, 130, 410, 96] },
+              { "n": 7, "p": [190, 96, 190, 118, 220, 107], "l": [199, 107] },
+              { "n": 7, "p": [410, 96, 410, 118, 440, 107], "l": [419, 107] }
+            ]
+          }
+        ]
+      },
+      "tiers": [
+        { "picture": "sunflower" },
+        { "picture": "bird" },
+        { "picture": "car" },
+        { "picture": "rabbit" },
+        { "picture": "balloons" },
+        { "picture": "castle" }
+      ]
+    },
+    {
+      "id": "g2-dance", "type": "dance", "subject": "dance", "title": "Nhảy theo nhạc", "icon": "duck", "pos": [1170, 430],
+      "base": { "rapid": 0 },
+      "tiers": [
+        { "bpm": 84, "lanes": 3, "slow": 10, "fast": 6 },
+        { "bpm": 92, "lanes": 4, "slow": 8, "fast": 12 },
+        { "bpm": 100, "lanes": 4, "slow": 4, "fast": 20 },
+        { "bpm": 108, "lanes": 4, "slow": 0, "fast": 24, "rapid": 4 },
+        { "bpm": 116, "lanes": 4, "slow": 0, "fast": 24, "rapid": 12 },
+        { "bpm": 126, "lanes": 4, "slow": 0, "fast": 26, "rapid": 20 }
+      ]
+    },
+    {
+      "id": "g2-catch", "type": "catch", "subject": "reflex", "title": "Hứng quả", "icon": "car", "pos": [1040, 340],
+      "base": { "time": 60, "tables": [2, 5] },
+      "tiers": [
+        { "ops": ["num"], "goal": 8, "max": 20, "speed": [110, 170], "spawn": 1200, "rate": 0.5 },
+        { "ops": ["add"], "goal": 10, "max": 20, "speed": [130, 200], "spawn": 1100, "rate": 0.45 },
+        { "ops": ["sub"], "goal": 10, "max": 20, "speed": [150, 220], "spawn": 1000, "rate": 0.45 },
+        { "ops": ["mul"], "tables": [2], "goal": 10, "max": 20, "speed": [160, 240], "spawn": 950, "rate": 0.45 },
+        { "ops": ["mul", "div"], "goal": 12, "max": 50, "speed": [180, 260], "spawn": 850, "rate": 0.4 },
+        { "ops": ["add", "sub", "mul", "div"], "goal": 14, "max": 50, "speed": [220, 320], "spawn": 700, "rate": 0.4 }
+      ]
+    },
+    {
+      "id": "g2-balance", "type": "balance", "subject": "balance", "title": "Cân thăng bằng", "icon": "scale", "pos": [890, 300],
+      "base": { "rounds": 5, "blocks": [1, 2, 5, 10] },
+      "tiers": [
+        { "left": "single", "min": 2, "max": 10, "blocks": [1, 2, 5] },
+        { "left": "single", "min": 10, "max": 20 },
+        { "left": "sum2", "max": 20 },
+        { "left": "single", "min": 10, "max": 50, "unique": true, "shelfSize": 5 },
+        { "left": "mul", "tables": [2, 5], "showSum": false },
+        { "left": "sum2", "given": true, "maxBlocks": 3, "blocks": [1, 2, 5, 10, 20, 50], "showSum": false, "rounds": 6 }
+      ]
+    },
+    {
+      "id": "g2-coding", "type": "coding", "subject": "coding", "title": "Lập trình robot", "icon": "robot", "pos": [740, 340],
+      "base": { "rounds": 3 },
+      "tiers": [
+        { "size": 4, "straight": true, "obstacles": 0, "slack": 3 },
+        { "size": 5, "obstacles": 0, "slack": 2, "minLen": 4 },
+        { "size": 5, "obstacles": 4, "slack": 2, "rounds": 4 },
+        { "size": 6, "obstacles": 7, "slack": 1, "minRuns": 3, "rounds": 4 },
+        { "size": 6, "obstacles": 9, "slack": 0, "minLen": 7, "minRuns": 3, "rounds": 4 },
+        { "size": 7, "obstacles": 14, "slack": 0, "minLen": 9, "minRuns": 4, "rounds": 4 }
+      ]
+    }
+  ],
+  "boss": {
+    "id": "g2-boss", "type": "boss", "subject": "mixed", "title": "Quái Gió Xoáy", "icon": "boss2", "sticker": "boss2_happy",
+    "pos": [580, 290], "requiredStars": 25,
+    "config": {
+      "hp": 7,
+      "art": "boss2",
+      "intro": "Quái Gió Xoáy thổi bay hết hoa hướng dương rồi! Bé trả lời đúng để đánh bại nó nhé!",
+      "outro": "Hoan hô! Gió đã lặng, hoa hướng dương lại nở rồi!",
+      "types": ["mul", "clock", "spell", "color", "seq", "mul", "clock", "spell", "color"],
+      "spell": [
+        { "item": "bird", "shown": "__im", "answer": "ch", "options": ["tr"], "say": "con chim" },
+        { "item": "moon", "shown": "__ăng", "answer": "tr", "options": ["ch"], "say": "mặt trăng" },
+        { "item": "book", "shown": "__ách", "answer": "s", "options": ["x"], "say": "quyển sách" },
+        { "item": "car", "shown": "__e", "answer": "x", "options": ["s"], "say": "xe ô tô" },
+        { "item": "chair", "shown": "__ế", "answer": "gh", "options": ["g"], "say": "cái ghế" },
+        { "item": "pig", "shown": "__ợn", "answer": "l", "options": ["n"], "say": "con lợn" }
+      ],
+      "colors": [
+        { "w": "red", "color": "#ff4d4d" }, { "w": "blue", "color": "#4a90e2" }, { "w": "green", "color": "#5cc95c" },
+        { "w": "yellow", "color": "#ffd23f" }, { "w": "pink", "color": "#ff8fc8" }, { "w": "purple", "color": "#9b6be0" },
+        { "w": "orange", "color": "#ff9a3c" }, { "w": "brown", "color": "#a0683f" }
+      ]
+    }
+  }
+}

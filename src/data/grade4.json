@@ -1,0 +1,260 @@
+{
+  "id": "grade4",
+  "name": "Đảo Nấm Thần",
+  "grade": 4,
+  "bg": "bg_island4",
+  "tree": [330, 268],
+  "world": [900, 300],
+  "icon": "mushroom",
+  "icon2": "frog",
+  "color": "#c6e6ad",
+  "unlock": { "boss": "g3-boss", "island": "grade3" },
+  "decor": ["mushroom", "tree", "flower"],
+  "journey": {
+    "regions": [
+      { "name": "Rừng Nấm Nhỏ", "from": 0 },
+      { "name": "Suối Đom Đóm", "from": 7 },
+      { "name": "Lâu Đài Nấm", "from": 13 }
+    ],
+    "stops": [
+      { "kind": "play", "subject": "g4-math", "tier": 0 },
+      { "kind": "story", "subject": "g4-maze", "tier": 0, "npc": "frog", "npcName": "Ếch Xanh",
+        "story": ["Ộp ộp! Mình bị lạc trong rừng nấm rồi!", "Bé đi theo các số trong bảng nhân để dẫn mình về ao nhé!"],
+        "thanks": "Về tới ao rồi! Cảm ơn bé, mình nhảy theo bé nhé!" },
+      { "kind": "play", "subject": "g4-viet", "tier": 0 },
+      { "kind": "play", "subject": "g4-balance", "tier": 1 },
+      { "kind": "chest", "reward": { "acc": "mushroom" } },
+      { "kind": "play", "subject": "g4-english", "tier": 0 },
+      { "kind": "gate", "name": "Cổng Nấm", "hp": 3,
+        "intro": "Cổng Nấm bị dây leo quấn kín! Bé trả lời đúng 3 câu để mở cổng nhé!",
+        "outro": "Cổng mở rồi! Mình đi tới Suối Đom Đóm nào!" },
+      { "kind": "story", "subject": "g4-sort", "tier": 0, "npc": "squirrel", "npcName": "Sóc Nâu",
+        "story": ["Kho hạt dẻ của mình bị xáo trộn hết rồi!", "Mỗi hạt dẻ có một từ. Bé xếp danh từ và động từ vào đúng giỏ giúp mình nhé!"],
+        "thanks": "Kho hạt gọn gàng rồi! Cảm ơn bé!" },
+      { "kind": "play", "subject": "g4-memory", "tier": 0 },
+      { "kind": "play", "subject": "g4-pattern", "tier": 1 },
+      { "kind": "rest", "name": "Trạm nghỉ bên suối", "options": [{ "subject": "g4-dance", "tier": 0 }, { "subject": "g4-sudoku", "tier": 0 }] },
+      { "kind": "play", "subject": "g4-coding", "tier": 2 },
+      { "kind": "gate", "name": "Cầu Dây Leo", "hp": 3,
+        "intro": "Cầu dây leo bị đứt rồi! Bé trả lời đúng 3 câu để nối lại cầu nhé!",
+        "outro": "Cầu nối xong rồi! Lâu Đài Nấm ở ngay trước mặt!" },
+      { "kind": "play", "subject": "g4-sudoku", "tier": 2 },
+      { "kind": "story", "subject": "g4-math", "tier": 3, "npc": "rabbit", "npcName": "Thỏ Trắng",
+        "story": ["Mình muốn chia đều cà rốt cho các bạn mà không biết làm sao!", "Bé giải các bài phân số giúp mình nhé!"],
+        "thanks": "Chia đều rồi, ai cũng vui! Cảm ơn bé!" },
+      { "kind": "play", "subject": "g4-viet", "tier": 3 },
+      { "kind": "chest", "reward": { "acc": "leaf" } },
+      { "kind": "boss" }
+    ]
+  },
+  "subjects": [
+    {
+      "id": "g4-math", "type": "math", "subject": "math", "title": "Toán vui", "icon": "mushroom", "pos": [200, 600],
+      "base": { "rounds": 8, "tables": [6, 7, 8, 9] },
+      "tiers": [
+        { "kinds": ["mul2"] },
+        { "kinds": ["avg"] },
+        { "kinds": ["fracAdd", "fracSub"] },
+        { "kinds": ["fracOf", "mul2"] },
+        { "kinds": ["add", "sub"], "max": 100000 },
+        { "rounds": 10, "kinds": ["mul2", "avg", "fracAdd", "fracOf", "divBig"] }
+      ]
+    },
+    {
+      "id": "g4-viet", "type": "match", "subject": "viet", "title": "Từ ngữ", "icon": "book", "pos": [340, 515],
+      "base": {
+        "lang": "vi-VN",
+        "vocab": [
+          { "label": "siêng năng", "word": "lười biếng" }, { "label": "dũng cảm", "word": "hèn nhát" },
+          { "label": "thật thà", "word": "gian dối" }, { "label": "rộng rãi", "word": "chật hẹp" },
+          { "label": "ồn ào", "word": "yên tĩnh" }, { "label": "sạch sẽ", "word": "bẩn thỉu" },
+          { "label": "khiêm tốn", "word": "kiêu căng" }, { "label": "vui vẻ", "word": "buồn bã" },
+          { "label": "giàu có", "word": "nghèo khó" }, { "label": "mạnh mẽ", "word": "yếu ớt" },
+          { "label": "siêng năng", "word": "chăm chỉ" }, { "label": "to lớn", "word": "khổng lồ" },
+          { "label": "nhỏ bé", "word": "tí hon" }, { "label": "xinh đẹp", "word": "xinh xắn" },
+          { "label": "vui vẻ", "word": "vui tươi" }, { "label": "nhanh nhẹn", "word": "hoạt bát" },
+          { "label": "dũng cảm", "word": "gan dạ" }, { "label": "thông minh", "word": "sáng dạ" },
+          { "label": "hiền lành", "word": "hiền hậu" }, { "label": "ngăn nắp", "word": "gọn gàng" }
+        ]
+      },
+      "tiers": [
+        { "prompt": "Nối từ với từ trái nghĩa", "pairs": 3, "sets": 2, "vocabFrom": 0, "vocabSize": 10 },
+        { "prompt": "Nối từ với từ trái nghĩa", "pairs": 4, "sets": 3, "vocabFrom": 0, "vocabSize": 10 },
+        { "prompt": "Nối từ với từ cùng nghĩa", "pairs": 3, "sets": 2, "vocabFrom": 10, "vocabSize": 10 },
+        { "prompt": "Nối từ với từ cùng nghĩa", "pairs": 4, "sets": 3, "vocabFrom": 10, "vocabSize": 10 },
+        { "prompt": "Nối từ với từ cùng nghĩa", "pairs": 5, "sets": 3, "vocabFrom": 10, "vocabSize": 10 },
+        { "prompt": "Nối từ với từ cùng nghĩa", "pairs": 5, "sets": 4, "vocabFrom": 10, "vocabSize": 10, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g4-pattern", "type": "pattern", "subject": "logic", "title": "Tìm quy luật", "icon": "staritem", "pos": [480, 600],
+      "base": { "rounds": 5, "mode": "number" },
+      "tiers": [
+        { "seqKinds": ["up"], "steps": [7, 8, 9, 12], "startMax": 50, "hide": "last" },
+        { "seqKinds": ["down"], "steps": [11, 15, 25], "startMax": 200, "hide": "mixed" },
+        { "seqKinds": ["geo"], "factors": [2, 3], "len": 5, "hide": "mixed" },
+        { "seqKinds": ["alt"], "steps": [5, 10, 25], "startMax": 100, "hide": "middle", "choices": 4 },
+        { "seqKinds": ["grow", "geo"], "factors": [2, 3], "len": 6, "hide": "middle", "choices": 4 },
+        { "rounds": 6, "seqKinds": ["geo", "alt", "grow", "down"], "factors": [3, 4], "steps": [11, 13, 17], "startMax": 100, "len": 6, "hide": "middle", "choices": 4 }
+      ]
+    },
+    {
+      "id": "g4-maze", "type": "maze", "subject": "maze", "title": "Mê cung số", "icon": "frog", "pos": [620, 515],
+      "base": {},
+      "tiers": [
+        { "size": 5, "rule": "table", "table": 6 },
+        { "size": 5, "rule": "table", "table": 7 },
+        { "size": 6, "rule": "seq", "step": 9 },
+        { "size": 6, "rule": "sum", "target": 50, "ops": ["add", "sub"] },
+        { "size": 6, "rule": "table", "table": 8 },
+        { "size": 6, "rule": "sum", "target": 36, "ops": ["add", "sub", "mul"] }
+      ]
+    },
+    {
+      "id": "g4-english", "type": "match", "subject": "english", "title": "Tiếng Anh", "icon": "bird", "pos": [760, 600],
+      "base": {
+        "prompt": "Nối từ tiếng Việt với từ tiếng Anh",
+        "vocab": [
+          { "label": "giáo viên", "word": "teacher" }, { "label": "bác sĩ", "word": "doctor" }, { "label": "nông dân", "word": "farmer" },
+          { "label": "đầu bếp", "word": "cook" }, { "label": "ca sĩ", "word": "singer" }, { "label": "y tá", "word": "nurse" },
+          { "label": "phi công", "word": "pilot" },
+          { "label": "môn Toán", "word": "maths" }, { "label": "Tiếng Việt", "word": "Vietnamese" }, { "label": "Âm nhạc", "word": "music" },
+          { "label": "Mĩ thuật", "word": "art" }, { "label": "Khoa học", "word": "science" }, { "label": "Tin học", "word": "IT" },
+          { "label": "thứ Hai", "word": "Monday" }, { "label": "thứ Ba", "word": "Tuesday" }, { "label": "thứ Tư", "word": "Wednesday" },
+          { "label": "thứ Năm", "word": "Thursday" }, { "label": "thứ Sáu", "word": "Friday" }, { "label": "thứ Bảy", "word": "Saturday" },
+          { "label": "Chủ nhật", "word": "Sunday" }
+        ]
+      },
+      "tiers": [
+        { "pairs": 3, "sets": 2, "vocabFrom": 0, "vocabSize": 7 },
+        { "pairs": 4, "sets": 2, "vocabFrom": 7, "vocabSize": 6 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 13, "vocabSize": 7 },
+        { "pairs": 4, "sets": 3, "vocabFrom": 0, "vocabSize": 13 },
+        { "pairs": 5, "sets": 3, "vocabFrom": 0, "vocabSize": 20 },
+        { "pairs": 5, "sets": 4, "vocabFrom": 0, "vocabSize": 20, "noSpeak": true }
+      ]
+    },
+    {
+      "id": "g4-sort", "type": "sort", "subject": "sort", "title": "Phân loại", "icon": "squirrel", "pos": [900, 515],
+      "base": {
+        "groups": {
+          "wordtype2": {
+            "bins": [{ "name": "Danh từ" }, { "name": "Động từ" }],
+            "items": [
+              { "label": "học sinh", "bin": 0 }, { "label": "con mèo", "bin": 0 }, { "label": "quyển vở", "bin": 0 }, { "label": "dòng sông", "bin": 0 }, { "label": "bầu trời", "bin": 0 }, { "label": "cái bàn", "bin": 0 },
+              { "label": "chạy", "bin": 1 }, { "label": "viết", "bin": 1 }, { "label": "suy nghĩ", "bin": 1 }, { "label": "ca hát", "bin": 1 }, { "label": "nhảy", "bin": 1 }, { "label": "đọc", "bin": 1 }
+            ]
+          },
+          "wordtype3": {
+            "bins": [{ "name": "Danh từ" }, { "name": "Động từ" }, { "name": "Tính từ" }],
+            "items": [
+              { "label": "học sinh", "bin": 0 }, { "label": "quyển vở", "bin": 0 }, { "label": "dòng sông", "bin": 0 }, { "label": "bầu trời", "bin": 0 },
+              { "label": "chạy", "bin": 1 }, { "label": "viết", "bin": 1 }, { "label": "suy nghĩ", "bin": 1 }, { "label": "ca hát", "bin": 1 },
+              { "label": "xinh đẹp", "bin": 2 }, { "label": "cao lớn", "bin": 2 }, { "label": "đỏ thắm", "bin": 2 }, { "label": "thông minh", "bin": 2 }
+            ]
+          }
+        }
+      },
+      "tiers": [
+        { "group": "wordtype2", "rounds": 8 },
+        { "rule": "divisible", "by": 3, "min": 10, "max": 300, "rounds": 8 },
+        { "group": "wordtype3", "rounds": 9 },
+        { "rule": "divisible", "by": 9, "min": 10, "max": 500, "rounds": 10 },
+        { "rule": "vsOne", "form": "frac", "rounds": 10 },
+        { "group": "wordtype3", "rounds": 12 }
+      ]
+    },
+    {
+      "id": "g4-memory", "type": "memory", "subject": "memory", "title": "Lật thẻ", "icon": "cards", "pos": [1050, 590],
+      "base": { "tables": [6, 7, 8, 9] },
+      "tiers": [
+        { "pairs": 4, "mode": "mul", "tables": [6, 7], "peek": 1500 },
+        { "pairs": 5, "mode": "mul", "tables": [8, 9] },
+        { "pairs": 5, "mode": "pairs", "list": [
+          { "a": "1/2", "b": "một phần hai" }, { "a": "1/3", "b": "một phần ba" }, { "a": "1/4", "b": "một phần tư" },
+          { "a": "2/3", "b": "hai phần ba" }, { "a": "3/4", "b": "ba phần tư" }, { "a": "1/5", "b": "một phần năm" },
+          { "a": "2/5", "b": "hai phần năm" }, { "a": "5/6", "b": "năm phần sáu" }
+        ] },
+        { "pairs": 6, "mode": "pairs", "list": [
+          { "a": "siêng năng", "b": "chăm chỉ" }, { "a": "to lớn", "b": "khổng lồ" }, { "a": "nhỏ bé", "b": "tí hon" },
+          { "a": "xinh đẹp", "b": "xinh xắn" }, { "a": "dũng cảm", "b": "gan dạ" }, { "a": "thông minh", "b": "sáng dạ" },
+          { "a": "hiền lành", "b": "hiền hậu" }, { "a": "ngăn nắp", "b": "gọn gàng" }
+        ] },
+        { "pairs": 6, "mode": "pairs", "list": [
+          { "a": "1/2", "b": "2/4" }, { "a": "1/3", "b": "2/6" }, { "a": "3/4", "b": "6/8" }, { "a": "2/5", "b": "4/10" },
+          { "a": "1/4", "b": "3/12" }, { "a": "2/3", "b": "4/6" }, { "a": "3/5", "b": "6/10" }, { "a": "4/5", "b": "8/10" }
+        ] },
+        { "pairs": 8, "mode": "pairs", "list": [
+          { "a": "1/2", "b": "2/4" }, { "a": "1/3", "b": "2/6" }, { "a": "3/4", "b": "6/8" }, { "a": "2/5", "b": "4/10" },
+          { "a": "1/4", "b": "3/12" }, { "a": "2/3", "b": "4/6" }, { "a": "3/5", "b": "6/10" }, { "a": "4/5", "b": "8/10" }
+        ] }
+      ]
+    },
+    {
+      "id": "g4-balance", "type": "balance", "subject": "balance", "title": "Cân thăng bằng", "icon": "scale", "pos": [1170, 430],
+      "base": { "rounds": 5, "blocks": [1, 2, 5, 10, 20, 50] },
+      "tiers": [
+        { "left": "single", "min": 20, "max": 100 },
+        { "left": "sum2", "max": 100 },
+        { "left": "mul", "tables": [6, 7, 8, 9], "showSum": false },
+        { "left": "single", "min": 20, "max": 100, "unique": true, "shelfSize": 6 },
+        { "left": "sum2", "given": true, "maxBlocks": 3, "showSum": false },
+        { "left": "mul", "tables": [7, 8, 9], "showSum": false, "rounds": 6 }
+      ]
+    },
+    {
+      "id": "g4-coding", "type": "coding", "subject": "coding", "title": "Lập trình robot", "icon": "robot", "pos": [1040, 340],
+      "base": { "rounds": 3 },
+      "tiers": [
+        { "size": 5, "obstacles": 4, "slack": 2 },
+        { "size": 6, "obstacles": 7, "slack": 1 },
+        { "size": 6, "obstacles": 9, "slack": 1, "minRuns": 3 },
+        { "size": 7, "obstacles": 12, "slack": 1, "minRuns": 4, "rounds": 4 },
+        { "size": 7, "obstacles": 14, "slack": 0, "minRuns": 4, "rounds": 4 },
+        { "size": 7, "obstacles": 16, "slack": 0, "minRuns": 5, "minLen": 10, "rounds": 4 }
+      ]
+    },
+    {
+      "id": "g4-sudoku", "type": "sudoku", "subject": "sudoku", "title": "Sudoku", "icon": "heart", "pos": [890, 300],
+      "base": {},
+      "tiers": [
+        { "size": 4, "symbols": "num", "blanks": 8, "rounds": 2 },
+        { "size": 4, "symbols": "num", "blanks": 11, "rounds": 2 },
+        { "size": 6, "symbols": "num", "blanks": 14 },
+        { "size": 6, "symbols": "num", "blanks": 18 },
+        { "size": 6, "symbols": "num", "blanks": 22 },
+        { "size": 6, "symbols": "num", "blanks": 26 }
+      ]
+    },
+    {
+      "id": "g4-dance", "type": "dance", "subject": "dance", "title": "Nhảy theo nhạc", "icon": "note", "pos": [740, 340],
+      "base": { "rapid": 0 },
+      "tiers": [
+        { "bpm": 100, "lanes": 4, "slow": 4, "fast": 16 },
+        { "bpm": 108, "lanes": 4, "slow": 0, "fast": 24 },
+        { "bpm": 114, "lanes": 4, "slow": 0, "fast": 24, "rapid": 8 },
+        { "bpm": 120, "lanes": 4, "slow": 0, "fast": 24, "rapid": 14 },
+        { "bpm": 126, "lanes": 4, "slow": 0, "fast": 26, "rapid": 20 },
+        { "bpm": 134, "lanes": 4, "slow": 0, "fast": 28, "rapid": 26 }
+      ]
+    }
+  ],
+  "boss": {
+    "id": "g4-boss", "type": "boss", "subject": "mixed", "title": "Vua Nấm Cáu Kỉnh", "icon": "boss4", "sticker": "boss4_happy",
+    "pos": [580, 290], "requiredStars": 30,
+    "config": {
+      "hp": 8,
+      "art": "boss4",
+      "intro": "Vua Nấm Cáu Kỉnh rắc bào tử khắp rừng! Bé trả lời đúng để làm vua vui lên nhé!",
+      "outro": "Hoan hô! Vua Nấm đã vui vẻ trở lại rồi!",
+      "types": ["math", "pair", "seq", "math", "pair", "math", "seq", "pair"],
+      "math": { "kinds": ["mul2", "avg", "fracAdd", "fracOf"], "tables": [6, 7, 8, 9] },
+      "pairPrompt": "Chọn từ cùng nghĩa nhé!",
+      "pairs": [
+        { "q": "siêng năng", "a": "chăm chỉ" }, { "q": "to lớn", "a": "khổng lồ" }, { "q": "nhỏ bé", "a": "tí hon" },
+        { "q": "dũng cảm", "a": "gan dạ" }, { "q": "thông minh", "a": "sáng dạ" }, { "q": "hiền lành", "a": "hiền hậu" },
+        { "q": "ngăn nắp", "a": "gọn gàng" }, { "q": "vui vẻ", "a": "vui tươi" }
+      ]
+    }
+  }
+}
