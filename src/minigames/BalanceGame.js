@@ -21,6 +21,16 @@ export default class BalanceGame extends BaseMinigame {
     this.i = 0;
     this.n = this.cfg.rounds ?? 5;
     this.drawStand();
+    // Quả cân trên kệ: chạm nhẹ hoặc kéo thả vào đĩa phải đều được; kéo ra chỗ khác thì quả cân về lại kệ.
+    this.input.on('dragstart', (p, b) => b.setDepth(20));
+    this.input.on('drag', (p, b, x, y) => b.setPosition(x, y));
+    this.input.on('dragend', (p, b) => {
+      const moved = Phaser.Math.Distance.Between(p.downX, p.downY, p.upX, p.upY);
+      const pan = this.pans[1];
+      const onPan = Math.abs(b.x - pan.x) < 150 && b.y > pan.y - 150 && b.y < pan.y + 80;
+      b.setPosition(b.homeX, SHELF_Y).setDepth(0);
+      if (moved < 12 || onPan) this.addBlock(b);
+    });
     this.nextRound();
   }
 
@@ -59,7 +69,8 @@ export default class BalanceGame extends BaseMinigame {
     g.fillStyle(shade(color, 0.8), 1).fillPoints([{ x: -w / 2 + 8, y: -26 }, { x: w / 2 - 8, y: -26 }, { x: w / 2, y: 4 }, { x: -w / 2, y: 4 }], true);
     g.fillStyle(color, 1).fillPoints([{ x: -w / 2 + 8, y: -30 }, { x: w / 2 - 8, y: -30 }, { x: w / 2, y: 0 }, { x: -w / 2, y: 0 }], true);
     c.add([g, text(this, 0, -15, label, 24, '#ffffff', { stroke: hex(shade(color, 0.6)), strokeThickness: 5 })]);
-    c.w = w;
+    // Không đặt tên "w": Phaser có sẵn thuộc tính w và setPosition() đưa nó về 0, làm vùng chạm rộng 0.
+    c.blockW = w;
     c.value = value;
     return c;
   }
@@ -117,12 +128,13 @@ export default class BalanceGame extends BaseMinigame {
     const gap = Math.min(120, 620 / r.shelf.length);
     r.shelf.forEach((v, k) => {
       const b = this.block(v);
-      b.setPosition(CX + 170 + (k - (r.shelf.length - 1) / 2) * gap, SHELF_Y);
-      b.setSize(b.w, 48).setInteractive({ useHandCursor: true });
-      b.on('pointerdown', () => this.addBlock(b));
+      b.homeX = CX + 170 + (k - (r.shelf.length - 1) / 2) * gap;
+      b.setPosition(b.homeX, SHELF_Y);
+      // Vùng chạm phủ cả quai và thân quả cân (thân nằm từ y -43 tới 4).
+      b.setInteractive({ hitArea: new Phaser.Geom.Rectangle(-b.blockW / 2 - 6, -48, b.blockW + 12, 58), hitAreaCallback: Phaser.Geom.Rectangle.Contains, useHandCursor: true, draggable: true });
       this.shelfLayer.add(b);
     });
-    let msg = 'Bé đặt quả cân sang đĩa bên phải cho hai bên bằng nhau nhé!';
+    let msg = 'Bé chạm hoặc kéo quả cân sang đĩa bên phải cho hai bên bằng nhau nhé!';
     if (this.cfg.unique) msg = 'Bé chọn đúng 2 quả cân để cân bằng nhé!';
     else if (this.cfg.maxBlocks) msg = `Bé dùng nhiều nhất ${this.cfg.maxBlocks} quả cân để cân bằng nhé!`;
     this.mascot.say(msg, { duration: 3500 });
@@ -156,7 +168,7 @@ export default class BalanceGame extends BaseMinigame {
     }
     Audio.tone(330 + src.value * 8, 0.1, { type: 'triangle' });
     const b = this.block(src.value);
-    b.setSize(b.w, 48).setInteractive({ useHandCursor: true });
+    b.setInteractive({ hitArea: new Phaser.Geom.Rectangle(-b.blockW / 2 - 6, -48, b.blockW + 12, 58), hitAreaCallback: Phaser.Geom.Rectangle.Contains, useHandCursor: true });
     b.on('pointerdown', () => this.removeBlock(b));
     b.src = src;
     if (this.cfg.unique) src.setVisible(false);
