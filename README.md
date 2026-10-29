@@ -17,10 +17,10 @@ Cần có Internet để tải Phaser và font Baloo 2 từ CDN.
 
 ## Bản web (chơi trên điện thoại)
 
-Game được đăng lên claude.ai: https://claude.ai/artifact/Mh56LyozmTj8rUHjKMMJoK
+Link công khai (GitHub Pages, ai cũng mở được, không cần đăng nhập): https://funky0407.github.io/chibi-dao-tri-tue/
 
-- `web.html` là trang dùng cho bản web (giống `index.html` nhưng không có thẻ `<html>/<head>/<body>`, vì trang đăng sẽ tự bọc). Nó dùng chung thư mục `src/`.
-- Sửa game xong thì đăng lại `web.html` kèm các file `src/` đã đổi, cùng địa chỉ cũ.
+- GitHub Pages phục vụ thẳng thư mục này từ nhánh `main` của repo `funky0407/chibi-dao-tri-tue`. Sửa game xong thì `git commit` rồi `git push`; khoảng 1 phút sau link tự cập nhật.
+- `web.html` là bản cho claude.ai (https://claude.ai/artifact/Mh56LyozmTj8rUHjKMMJoK, chỉ chủ tài khoản xem được).
 - Tiến độ lưu riêng trên từng máy (localStorage), không đồng bộ giữa các điện thoại.
 
 ## Cấu trúc
